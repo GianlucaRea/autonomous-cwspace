@@ -1,0 +1,89 @@
+version: "4.15.0"
+
+services:
+
+
+  # Other Components
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto_container
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+    restart: always
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    networks:
+      - iot 
+
+  node-red:
+    image: nodered/node-red:latest
+    environment:
+      - TZ=Europe/Amsterdam
+    ports:
+      - "1880:1880"
+    networks:
+      - iot
+    volumes:
+      - "./monitoring/node-red-data:/data"
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana_container
+    volumes:
+      - ./grafana-data:/var/lib/grafana
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - iot
+    depends_on:
+      - influxdb
+  
+  # MAPE COMPONENTS
+  
+  # MONITOR
+  telegraf:
+    image: telegraf
+    container_name: MAPE_MONITOR
+    restart: always
+    volumes:
+      - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    depends_on:
+      - mosquitto
+      - influxdb
+    networks:
+      - iot
+
+  # KNOWLEDGE
+  influxdb:
+    image: influxdb:1.8
+    container_name: KNOWLEDGE
+    restart: always
+    ports:
+      - "8086:8086"
+    networks:
+      - iot
+    environment:
+      - INFLUXDB_DB=telegraf
+      - INFLUXDB_ADMIN_ENABLED=true
+      - INFLUXDB_ADMIN_USER=admin
+      - INFLUXDB_ADMIN_PASSWORD=secretpassword
+      - INFLUXDB_USER=telegraf
+      - INFLUXDB_USER_PASSWORD=secretpassword
+  
+
+  # Managed Enviroment Simulator Components
+  web:
+    build: ./cwspace-environment
+    command: node index.js
+    volumes:
+      - ./:/cwspace-environment
+      - /usr/app/node_modules
+    ports:
+      - "8000:8000"
+    networks:
+      - iot
+
+networks:
+  iot:

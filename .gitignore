@@ -1,0 +1,5 @@
+/.metadata/
+.DS_STORE
+/.idea
+**/.lck
+node_modules/

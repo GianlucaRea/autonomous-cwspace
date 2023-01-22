@@ -1,0 +1,101 @@
+{
+    "rooms": [
+        {
+            "name": "grid",
+            "id":0,
+            "type": "grid",  
+            "status" : 1,
+            "battery":{
+                "capacity" : null,
+                "level": null,
+                "input": 3000,
+                "output": 3000,
+                "frequency": 5000
+            }
+        },
+        {
+            "name": "room-1",
+            "id":1,
+            "type": "room",  
+            "status" : 1,
+            "energy": {
+                "sockets": 20,
+                "frequency": 5000
+            },
+            "battery":{
+                "capacity" : 100,
+                "level": 50,
+                "input": 50,
+                "output": 45,
+                "frequency": 5000
+            }
+        },
+        {
+            "name": "room-2",
+            "type": "room",
+            "id":2,
+            "status" : 1,
+            "energy": {
+                "sockets": 25,
+                "frequency": 5000
+            },
+            "battery":{
+                "capacity" : 100,
+                "level": 45,
+                "input": 50,
+                "output": 35,
+                "frequency": 5000
+            }
+        },{
+            "name": "room-3",
+            "type": "room",
+            "id":3,
+            "status" : 1,
+            "energy": {
+                "sockets": 40,
+                "frequency": 5000
+            },
+            "battery":{
+                "capacity" : 100,
+                "level": 80,
+                "input": 50,
+                "output": 70,
+                "frequency": 5000
+            }
+        },{
+            "name": "room-4",
+            "type": "room",
+            "status" : 1,
+            "id":4,
+            "energy": {
+                "sockets": 8,
+                "frequency": 5000
+            },
+            "battery":{
+                "capacity" : 100,
+                "level": 95,
+                "input": 10,
+                "output": 5,
+                "frequency": 5000
+            }
+
+        },{
+            "name": "room-5",
+            "type": "room",
+            "status" : 1,
+            "id": 5,
+            "energy": {
+                "sockets": 4,
+                "frequency": 5000
+            },
+            "battery":{
+                "capacity" : 100,
+                "level": 95,
+                "input": 10,
+                "output": 5,
+                "frequency": 5000
+            }
+        }
+    ]
+
+}
