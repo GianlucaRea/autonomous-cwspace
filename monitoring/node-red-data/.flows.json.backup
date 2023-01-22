@@ -26,7 +26,7 @@
     {
         "id": "4de722645afa96cc",
         "type": "tab",
-        "label": "meeting-room",
+        "label": "room-3",
         "disabled": false,
         "info": "",
         "env": []
@@ -34,7 +34,7 @@
     {
         "id": "2566bd04b1530eee",
         "type": "tab",
-        "label": "kitchen",
+        "label": "room-4",
         "disabled": false,
         "info": "",
         "env": []
@@ -42,7 +42,15 @@
     {
         "id": "ba0c76d3615074a6",
         "type": "tab",
-        "label": "bathroom",
+        "label": "room-5",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2e6ec7d666e24030",
+        "type": "tab",
+        "label": "room-0",
         "disabled": false,
         "info": "",
         "env": []
@@ -450,156 +458,13 @@
         "y": 480,
         "wires": [
             [
-                "aff6b8545318884e",
-                "44299126f57853e6",
-                "f45872f7c2ccf891",
-                "7f807e22225a469a",
-                "97835c773a0714cc",
-                "4b40af3d623b075f",
                 "e3d0ed828d27d381",
-                "0e1bc0aac71b263e",
-                "23ed3f88b9455eb9",
-                "c5ceef7e296a10af",
-                "48649a3725fa9459",
-                "b243e605dd9e88d6",
-                "1590d42af1389e47",
-                "1f4807f66bb9c070",
-                "371b8947e911a3f1",
-                "d736e1ab05df496a",
                 "50e78db6af651860",
-                "8e3edd988091735f"
-            ]
-        ]
-    },
-    {
-        "id": "aff6b8545318884e",
-        "type": "http request",
-        "z": "b36f7b70e4913aeb",
-        "name": "room-1-temp-1",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-1/temperature/1",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 300,
-        "y": 100,
-        "wires": [
-            [
-                "5a80734da4ffd17b"
-            ]
-        ]
-    },
-    {
-        "id": "44299126f57853e6",
-        "type": "http request",
-        "z": "b36f7b70e4913aeb",
-        "name": "room-1-temp-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-1/temperature/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 300,
-        "y": 160,
-        "wires": [
-            [
-                "632252ed718dc350"
-            ]
-        ]
-    },
-    {
-        "id": "f45872f7c2ccf891",
-        "type": "http request",
-        "z": "b36f7b70e4913aeb",
-        "name": "room-1-light",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-1/luminosity",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 290,
-        "y": 220,
-        "wires": [
-            [
-                "c28ab5c0b8c0519f"
-            ]
-        ]
-    },
-    {
-        "id": "7f807e22225a469a",
-        "type": "http request",
-        "z": "b36f7b70e4913aeb",
-        "name": "room-1-air-humidity",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-1/airHumidity",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 320,
-        "y": 280,
-        "wires": [
-            [
-                "3e97b1662871c649"
-            ]
-        ]
-    },
-    {
-        "id": "97835c773a0714cc",
-        "type": "http request",
-        "z": "b36f7b70e4913aeb",
-        "name": "room-1-co2-meter-1",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-1/co2/1",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 320,
-        "y": 340,
-        "wires": [
-            [
-                "580eb2e7ab078094"
-            ]
-        ]
-    },
-    {
-        "id": "4b40af3d623b075f",
-        "type": "http request",
-        "z": "b36f7b70e4913aeb",
-        "name": "room-1-co2-meter-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-1/co2/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 320,
-        "y": 400,
-        "wires": [
-            [
-                "6ebf8c387a328b5e"
+                "8e3edd988091735f",
+                "614cef6ecc25f4bc",
+                "a47feedeee6e4c2b",
+                "5c2cd860838da005",
+                "3613e78f3113a4b3"
             ]
         ]
     },
@@ -607,289 +472,21 @@
         "id": "e3d0ed828d27d381",
         "type": "http request",
         "z": "b36f7b70e4913aeb",
-        "name": "room-1-energy-1",
+        "name": "room-1-energy",
         "method": "GET",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-1/energy/1",
+        "url": "http://web:8000/home/sensors/room-1/energy",
         "tls": "",
         "persist": false,
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 310,
-        "y": 700,
-        "wires": [
-            [
-                "05ee707dcf7559f8"
-            ]
-        ]
-    },
-    {
-        "id": "0e1bc0aac71b263e",
-        "type": "http request",
-        "z": "b36f7b70e4913aeb",
-        "name": "room-1-energy-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-1/energy/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 760,
-        "wires": [
-            [
-                "9801bbdd47d0cf66"
-            ]
-        ]
-    },
-    {
-        "id": "23ed3f88b9455eb9",
-        "type": "http request",
-        "z": "b36f7b70e4913aeb",
-        "name": "room-1-energy-3",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-1/energy/3",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 820,
-        "wires": [
-            [
-                "52f6ae345b03f77e"
-            ]
-        ]
-    },
-    {
-        "id": "c5ceef7e296a10af",
-        "type": "http request",
-        "z": "b36f7b70e4913aeb",
-        "name": "room-1-energy-4",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-1/energy/4",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 880,
-        "wires": [
-            [
-                "a9a6e5d3d8427162"
-            ]
-        ]
-    },
-    {
-        "id": "48649a3725fa9459",
-        "type": "http request",
-        "z": "b36f7b70e4913aeb",
-        "name": "room-1-energy-5",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-1/energy/5",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 940,
-        "wires": [
-            [
-                "0c553f02be8d7dc3"
-            ]
-        ]
-    },
-    {
-        "id": "b243e605dd9e88d6",
-        "type": "http request",
-        "z": "b36f7b70e4913aeb",
-        "name": "room-1-energy-6",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-1/energy/6",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 1000,
-        "wires": [
-            [
-                "fe8eb293ddc008a6"
-            ]
-        ]
-    },
-    {
-        "id": "1590d42af1389e47",
-        "type": "http request",
-        "z": "b36f7b70e4913aeb",
-        "name": "room-1-energy-7",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-1/energy/7",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 1060,
-        "wires": [
-            [
-                "7b0d7fe268a5cf94"
-            ]
-        ]
-    },
-    {
-        "id": "1f4807f66bb9c070",
-        "type": "http request",
-        "z": "b36f7b70e4913aeb",
-        "name": "room-1-energy-8",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-1/energy/8",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 1120,
-        "wires": [
-            [
-                "2cdc9f2c45293751"
-            ]
-        ]
-    },
-    {
-        "id": "5a80734da4ffd17b",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"temp-1\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 100,
-        "wires": [
-            [
-                "e7d4fcd3d91073e2"
-            ]
-        ]
-    },
-    {
-        "id": "632252ed718dc350",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"temp\"\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
+        "x": 300,
         "y": 160,
         "wires": [
             [
-                "e7d4fcd3d91073e2"
-            ]
-        ]
-    },
-    {
-        "id": "c28ab5c0b8c0519f",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"light\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 220,
-        "wires": [
-            [
-                "16ed192a12e441fe"
-            ]
-        ]
-    },
-    {
-        "id": "3e97b1662871c649",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"humidity\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 280,
-        "wires": [
-            [
-                "16ed192a12e441fe"
-            ]
-        ]
-    },
-    {
-        "id": "580eb2e7ab078094",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"co2-1\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 340,
-        "wires": [
-            [
-                "a9e79ddfd5ee572c"
-            ]
-        ]
-    },
-    {
-        "id": "6ebf8c387a328b5e",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"co2\"\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 400,
-        "wires": [
-            [
-                "a9e79ddfd5ee572c"
+                "05ee707dcf7559f8"
             ]
         ]
     },
@@ -898,232 +495,17 @@
         "type": "function",
         "z": "b36f7b70e4913aeb",
         "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-1\"\nreturn msg",
+        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energyDemand\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 700,
+        "y": 160,
         "wires": [
             [
-                "40a6d3278e2d3292"
-            ]
-        ]
-    },
-    {
-        "id": "9801bbdd47d0cf66",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-2\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 760,
-        "wires": [
-            [
-                "40a6d3278e2d3292"
-            ]
-        ]
-    },
-    {
-        "id": "52f6ae345b03f77e",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-3\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 820,
-        "wires": [
-            [
-                "40a6d3278e2d3292"
-            ]
-        ]
-    },
-    {
-        "id": "a9a6e5d3d8427162",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-4\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 880,
-        "wires": [
-            [
-                "40a6d3278e2d3292"
-            ]
-        ]
-    },
-    {
-        "id": "0c553f02be8d7dc3",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-5\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 940,
-        "wires": [
-            [
-                "40a6d3278e2d3292"
-            ]
-        ]
-    },
-    {
-        "id": "fe8eb293ddc008a6",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-6\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 1000,
-        "wires": [
-            [
-                "40a6d3278e2d3292"
-            ]
-        ]
-    },
-    {
-        "id": "7b0d7fe268a5cf94",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-7\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 1060,
-        "wires": [
-            [
-                "40a6d3278e2d3292"
-            ]
-        ]
-    },
-    {
-        "id": "2cdc9f2c45293751",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy\"\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 1120,
-        "wires": [
-            [
-                "40a6d3278e2d3292"
-            ]
-        ]
-    },
-    {
-        "id": "371b8947e911a3f1",
-        "type": "http request",
-        "z": "b36f7b70e4913aeb",
-        "name": "room-1-fire-1",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-1/fire/1",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 300,
-        "y": 580,
-        "wires": [
-            [
-                "d1753543a50f7cb7"
-            ]
-        ]
-    },
-    {
-        "id": "d1753543a50f7cb7",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"fire-1\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 580,
-        "wires": [
-            [
-                "b12d3af704a7710a"
-            ]
-        ]
-    },
-    {
-        "id": "d736e1ab05df496a",
-        "type": "http request",
-        "z": "b36f7b70e4913aeb",
-        "name": "room-1-fire-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-1/fire/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 300,
-        "y": 640,
-        "wires": [
-            [
-                "12a94b65504ed9e1"
-            ]
-        ]
-    },
-    {
-        "id": "12a94b65504ed9e1",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"fire\"\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 640,
-        "wires": [
-            [
-                "b12d3af704a7710a"
+                "16ed192a12e441fe"
             ]
         ]
     },
@@ -1147,8 +529,8 @@
         "reduceInit": "",
         "reduceInitType": "num",
         "reduceFixup": "",
-        "x": 1110,
-        "y": 540,
+        "x": 790,
+        "y": 480,
         "wires": [
             [
                 "89ca77f71fdd9f94"
@@ -1163,8 +545,8 @@
         "property": "payload",
         "action": "",
         "pretty": true,
-        "x": 1230,
-        "y": 540,
+        "x": 910,
+        "y": 480,
         "wires": [
             [
                 "8026b63e1a898482"
@@ -1176,7 +558,7 @@
         "type": "mqtt out",
         "z": "b36f7b70e4913aeb",
         "name": "",
-        "topic": "home/sensors/room-1",
+        "topic": "home/sensors/room1",
         "qos": "0",
         "retain": "",
         "respTopic": "",
@@ -1185,8 +567,8 @@
         "correl": "",
         "expiry": "",
         "broker": "8a45ccd334f47670",
-        "x": 1400,
-        "y": 540,
+        "x": 1100,
+        "y": 480,
         "wires": []
     },
     {
@@ -1200,196 +582,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
-        "y": 460,
-        "wires": [
-            [
-                "16ed192a12e441fe"
-            ]
-        ]
-    },
-    {
-        "id": "e7d4fcd3d91073e2",
-        "type": "join",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 670,
-        "y": 120,
-        "wires": [
-            [
-                "51b8a7138d4ff9cb"
-            ]
-        ]
-    },
-    {
-        "id": "51b8a7138d4ff9cb",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 810,
-        "y": 120,
-        "wires": [
-            [
-                "16ed192a12e441fe"
-            ]
-        ]
-    },
-    {
-        "id": "a9e79ddfd5ee572c",
-        "type": "join",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 670,
-        "y": 360,
-        "wires": [
-            [
-                "e1945d5f2d92c492"
-            ]
-        ]
-    },
-    {
-        "id": "e1945d5f2d92c492",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 810,
-        "y": 360,
-        "wires": [
-            [
-                "16ed192a12e441fe"
-            ]
-        ]
-    },
-    {
-        "id": "b12d3af704a7710a",
-        "type": "join",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 670,
-        "y": 600,
-        "wires": [
-            [
-                "8d4c675379a07898"
-            ]
-        ]
-    },
-    {
-        "id": "8d4c675379a07898",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 810,
-        "y": 600,
-        "wires": [
-            [
-                "16ed192a12e441fe"
-            ]
-        ]
-    },
-    {
-        "id": "40a6d3278e2d3292",
-        "type": "join",
-        "z": "b36f7b70e4913aeb",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 670,
-        "y": 840,
-        "wires": [
-            [
-                "94133fb89f4adf4f"
-            ]
-        ]
-    },
-    {
-        "id": "94133fb89f4adf4f",
-        "type": "function",
-        "z": "b36f7b70e4913aeb",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nmsg.complete =\"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 810,
-        "y": 840,
+        "x": 500,
+        "y": 400,
         "wires": [
             [
                 "16ed192a12e441fe"
@@ -1407,8 +601,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
-        "y": 520,
+        "x": 500,
+        "y": 560,
         "wires": [
             [
                 "16ed192a12e441fe"
@@ -1416,24 +610,140 @@
         ]
     },
     {
-        "id": "321af74746146346",
+        "id": "614cef6ecc25f4bc",
         "type": "http request",
-        "z": "4d6ea87134e4adb6",
-        "name": "room-2-temp-1",
+        "z": "b36f7b70e4913aeb",
+        "name": "room-1-battery",
         "method": "GET",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/temperature/1",
+        "url": "http://web:8000/home/sensors/room-1/battery",
         "tls": "",
         "persist": false,
         "proxy": "",
         "authType": "",
         "senderr": false,
         "x": 300,
-        "y": 40,
+        "y": 720,
         "wires": [
             [
-                "bc62e80503d91d06"
+                "a890097867db9058",
+                "a879cf1a835dc8a7",
+                "2e9866aaa5e5bb35"
+            ]
+        ]
+    },
+    {
+        "id": "a890097867db9058",
+        "type": "function",
+        "z": "b36f7b70e4913aeb",
+        "name": "",
+        "func": "msg.payload = msg.payload.level\nmsg.topic = \"batteryLevel\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 640,
+        "wires": [
+            [
+                "16ed192a12e441fe"
+            ]
+        ]
+    },
+    {
+        "id": "a879cf1a835dc8a7",
+        "type": "function",
+        "z": "b36f7b70e4913aeb",
+        "name": "",
+        "func": "msg.payload = msg.payload.output\nmsg.topic = \"batteryOutput\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 720,
+        "wires": [
+            [
+                "16ed192a12e441fe"
+            ]
+        ]
+    },
+    {
+        "id": "2e9866aaa5e5bb35",
+        "type": "function",
+        "z": "b36f7b70e4913aeb",
+        "name": "",
+        "func": "msg.payload = msg.payload.input\nmsg.topic = \"batteryInput\"\nmsg.complete = \"YES\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 800,
+        "wires": [
+            [
+                "16ed192a12e441fe"
+            ]
+        ]
+    },
+    {
+        "id": "a47feedeee6e4c2b",
+        "type": "function",
+        "z": "b36f7b70e4913aeb",
+        "name": "",
+        "func": "msg.payload = 100\nmsg.topic = \"batteryCapacity\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 320,
+        "wires": [
+            [
+                "16ed192a12e441fe"
+            ]
+        ]
+    },
+    {
+        "id": "5c2cd860838da005",
+        "type": "function",
+        "z": "b36f7b70e4913aeb",
+        "name": "",
+        "func": "msg.payload = 20\nmsg.topic = \"sockets\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 240,
+        "wires": [
+            [
+                "16ed192a12e441fe"
+            ]
+        ]
+    },
+    {
+        "id": "3613e78f3113a4b3",
+        "type": "function",
+        "z": "b36f7b70e4913aeb",
+        "name": "",
+        "func": "msg.payload = 1\nmsg.topic = \"status\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 480,
+        "wires": [
+            [
+                "16ed192a12e441fe"
             ]
         ]
     },
@@ -1461,789 +771,77 @@
         "y": 420,
         "wires": [
             [
-                "321af74746146346",
-                "7f50cd2f86c77fde",
-                "cfbceab558f00920",
-                "ee4789a96da359a2",
-                "b54956a7f981446d",
-                "1ac0c878e96b0b4d",
-                "daf9ba30b2344e0f",
-                "4104d129a569564d",
-                "70f71cf2b0de0bea",
-                "37869013c5a9c619",
-                "16e43ee59826c424",
-                "946bbea6a5390dd6",
-                "88a1e185b8223d39",
-                "7f3fc435826fb6ea",
-                "eadf023ba064d144",
-                "c237300d4c6e76f4",
-                "eeece51ac1fe1512",
-                "1245ddbf9984a204",
-                "649849ef73e2df80",
-                "6c487fc92a7adc8d",
-                "8ee7d80229c4c5c3"
+                "793e1897b3b800de",
+                "b91d89e0923f5395",
+                "50e11ceefff40109",
+                "4ac6510b8bce1377",
+                "a2e866d3605e8ab7",
+                "54702aeba5b57d1d",
+                "21f0a3190d78551b"
             ]
         ]
     },
     {
-        "id": "bc62e80503d91d06",
-        "type": "function",
+        "id": "253bb22a54cc2ed6",
+        "type": "mqtt out",
         "z": "4d6ea87134e4adb6",
         "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"temp-1\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 40,
-        "wires": [
-            [
-                "2f08f33edb595933"
-            ]
-        ]
+        "topic": "home/sensors/room2",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 1140,
+        "y": 420,
+        "wires": []
     },
     {
-        "id": "7f50cd2f86c77fde",
+        "id": "793e1897b3b800de",
         "type": "http request",
         "z": "4d6ea87134e4adb6",
-        "name": "room-2-temp-2",
+        "name": "room-2-energy",
         "method": "GET",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/temperature/2",
+        "url": "http://web:8000/home/sensors/room-2/energy",
         "tls": "",
         "persist": false,
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 300,
+        "x": 320,
         "y": 100,
         "wires": [
             [
-                "b36353ad3c4939c5"
+                "a20082b96dbc4a2e"
             ]
         ]
     },
     {
-        "id": "cfbceab558f00920",
-        "type": "http request",
-        "z": "4d6ea87134e4adb6",
-        "name": "room-2-light",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/luminosity",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 290,
-        "y": 280,
-        "wires": [
-            [
-                "3a5bc76a1a23e4e5"
-            ]
-        ]
-    },
-    {
-        "id": "ee4789a96da359a2",
-        "type": "http request",
-        "z": "4d6ea87134e4adb6",
-        "name": "room-2-air-humidity",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/airHumidity",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 320,
-        "y": 340,
-        "wires": [
-            [
-                "8339dabe339d8f4c"
-            ]
-        ]
-    },
-    {
-        "id": "b54956a7f981446d",
-        "type": "http request",
-        "z": "4d6ea87134e4adb6",
-        "name": "room-2-co2-meter-1",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/co2/1",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 320,
-        "y": 400,
-        "wires": [
-            [
-                "ebd6778d5878788a"
-            ]
-        ]
-    },
-    {
-        "id": "1ac0c878e96b0b4d",
-        "type": "http request",
-        "z": "4d6ea87134e4adb6",
-        "name": "room-2-co2-meter-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/co2/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 320,
-        "y": 460,
-        "wires": [
-            [
-                "9fda5e46518ac4a9"
-            ]
-        ]
-    },
-    {
-        "id": "daf9ba30b2344e0f",
-        "type": "http request",
-        "z": "4d6ea87134e4adb6",
-        "name": "room-2-energy-1",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/energy/1",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 760,
-        "wires": [
-            [
-                "348a6f5a76edec9b"
-            ]
-        ]
-    },
-    {
-        "id": "4104d129a569564d",
-        "type": "http request",
-        "z": "4d6ea87134e4adb6",
-        "name": "room-2-energy-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/energy/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 820,
-        "wires": [
-            [
-                "89d6fa9b5895da5b"
-            ]
-        ]
-    },
-    {
-        "id": "70f71cf2b0de0bea",
-        "type": "http request",
-        "z": "4d6ea87134e4adb6",
-        "name": "room-2-energy-3",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/energy/3",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 880,
-        "wires": [
-            [
-                "ede2f0df999e18d5"
-            ]
-        ]
-    },
-    {
-        "id": "37869013c5a9c619",
-        "type": "http request",
-        "z": "4d6ea87134e4adb6",
-        "name": "room-2-energy-4",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/energy/4",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 940,
-        "wires": [
-            [
-                "a5fed22fd03aafe8"
-            ]
-        ]
-    },
-    {
-        "id": "16e43ee59826c424",
-        "type": "http request",
-        "z": "4d6ea87134e4adb6",
-        "name": "room-2-energy-5",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/energy/5",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 1000,
-        "wires": [
-            [
-                "76b4997d8c88596a"
-            ]
-        ]
-    },
-    {
-        "id": "946bbea6a5390dd6",
-        "type": "http request",
-        "z": "4d6ea87134e4adb6",
-        "name": "room-2-energy-6",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/energy/6",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 1060,
-        "wires": [
-            [
-                "f14292ce04924096"
-            ]
-        ]
-    },
-    {
-        "id": "b36353ad3c4939c5",
+        "id": "a20082b96dbc4a2e",
         "type": "function",
         "z": "4d6ea87134e4adb6",
         "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"temp-2\"\nreturn msg",
+        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energyDemand\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 500,
+        "x": 520,
         "y": 100,
         "wires": [
             [
-                "2f08f33edb595933"
+                "41320a64d4bcb80f"
             ]
         ]
     },
     {
-        "id": "3a5bc76a1a23e4e5",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"light\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 280,
-        "wires": [
-            [
-                "df82f2fe8d35b0c8"
-            ]
-        ]
-    },
-    {
-        "id": "8339dabe339d8f4c",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"humidity\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 340,
-        "wires": [
-            [
-                "df82f2fe8d35b0c8"
-            ]
-        ]
-    },
-    {
-        "id": "ebd6778d5878788a",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"co2-1\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 400,
-        "wires": [
-            [
-                "818881097b1c2e92"
-            ]
-        ]
-    },
-    {
-        "id": "9fda5e46518ac4a9",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"co2-2\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 460,
-        "wires": [
-            [
-                "818881097b1c2e92"
-            ]
-        ]
-    },
-    {
-        "id": "348a6f5a76edec9b",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-1\"\n\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 760,
-        "wires": [
-            [
-                "ae0b31f97260ffe5"
-            ]
-        ]
-    },
-    {
-        "id": "89d6fa9b5895da5b",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-2\"\n\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 820,
-        "wires": [
-            [
-                "ae0b31f97260ffe5"
-            ]
-        ]
-    },
-    {
-        "id": "ede2f0df999e18d5",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-3\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 880,
-        "wires": [
-            [
-                "ae0b31f97260ffe5"
-            ]
-        ]
-    },
-    {
-        "id": "a5fed22fd03aafe8",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-4\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 940,
-        "wires": [
-            [
-                "ae0b31f97260ffe5"
-            ]
-        ]
-    },
-    {
-        "id": "76b4997d8c88596a",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-5\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 1000,
-        "wires": [
-            [
-                "ae0b31f97260ffe5"
-            ]
-        ]
-    },
-    {
-        "id": "f14292ce04924096",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy\"\nmsg.complete =\"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 1060,
-        "wires": [
-            [
-                "ae0b31f97260ffe5"
-            ]
-        ]
-    },
-    {
-        "id": "7f3fc435826fb6ea",
-        "type": "http request",
-        "z": "4d6ea87134e4adb6",
-        "name": "room-2-temp-3",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/temperature/3",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 300,
-        "y": 160,
-        "wires": [
-            [
-                "93c712eb8a5bb637"
-            ]
-        ]
-    },
-    {
-        "id": "93c712eb8a5bb637",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"temp-3\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 160,
-        "wires": [
-            [
-                "2f08f33edb595933"
-            ]
-        ]
-    },
-    {
-        "id": "88a1e185b8223d39",
-        "type": "http request",
-        "z": "4d6ea87134e4adb6",
-        "name": "room-2-temp-4",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/temperature/4",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 300,
-        "y": 220,
-        "wires": [
-            [
-                "10ef9ab2129e8707"
-            ]
-        ]
-    },
-    {
-        "id": "10ef9ab2129e8707",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"temp\"\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 220,
-        "wires": [
-            [
-                "2f08f33edb595933"
-            ]
-        ]
-    },
-    {
-        "id": "eadf023ba064d144",
-        "type": "http request",
-        "z": "4d6ea87134e4adb6",
-        "name": "room-2-co2-meter-3",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/co2/3",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 320,
-        "y": 520,
-        "wires": [
-            [
-                "70953a4c174db0da"
-            ]
-        ]
-    },
-    {
-        "id": "70953a4c174db0da",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"co2-3\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 520,
-        "wires": [
-            [
-                "818881097b1c2e92"
-            ]
-        ]
-    },
-    {
-        "id": "c237300d4c6e76f4",
-        "type": "http request",
-        "z": "4d6ea87134e4adb6",
-        "name": "room-2-co2-meter-4",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/co2/4",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 320,
-        "y": 580,
-        "wires": [
-            [
-                "f2f7e84ecc97746f"
-            ]
-        ]
-    },
-    {
-        "id": "f2f7e84ecc97746f",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"co2\"\nmsg.complete =\"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 580,
-        "wires": [
-            [
-                "818881097b1c2e92"
-            ]
-        ]
-    },
-    {
-        "id": "eeece51ac1fe1512",
-        "type": "http request",
-        "z": "4d6ea87134e4adb6",
-        "name": "room-2-fire-1",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/fire/1",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 300,
-        "y": 1120,
-        "wires": [
-            [
-                "791720740d56657f"
-            ]
-        ]
-    },
-    {
-        "id": "791720740d56657f",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"fire-1\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 1120,
-        "wires": [
-            [
-                "a70e147239dd31a2"
-            ]
-        ]
-    },
-    {
-        "id": "1245ddbf9984a204",
-        "type": "http request",
-        "z": "4d6ea87134e4adb6",
-        "name": "room-2-fire-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/fire/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 300,
-        "y": 1180,
-        "wires": [
-            [
-                "e8cf7579a607c4a4"
-            ]
-        ]
-    },
-    {
-        "id": "e8cf7579a607c4a4",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"fire-2\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 1180,
-        "wires": [
-            [
-                "a70e147239dd31a2"
-            ]
-        ]
-    },
-    {
-        "id": "649849ef73e2df80",
-        "type": "http request",
-        "z": "4d6ea87134e4adb6",
-        "name": "room-2-fire-3",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-2/fire/3",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 300,
-        "y": 1240,
-        "wires": [
-            [
-                "9fc6693b3a46c032"
-            ]
-        ]
-    },
-    {
-        "id": "9fc6693b3a46c032",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"fire\"\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 1240,
-        "wires": [
-            [
-                "a70e147239dd31a2"
-            ]
-        ]
-    },
-    {
-        "id": "df82f2fe8d35b0c8",
+        "id": "41320a64d4bcb80f",
         "type": "join",
         "z": "4d6ea87134e4adb6",
         "name": "",
@@ -2262,24 +860,24 @@
         "reduceInit": "",
         "reduceInitType": "num",
         "reduceFixup": "",
-        "x": 1050,
-        "y": 580,
+        "x": 810,
+        "y": 420,
         "wires": [
             [
-                "e942f5334286da59"
+                "bb2f24c6964cde05"
             ]
         ]
     },
     {
-        "id": "e942f5334286da59",
+        "id": "bb2f24c6964cde05",
         "type": "json",
         "z": "4d6ea87134e4adb6",
         "name": "",
         "property": "payload",
         "action": "",
         "pretty": true,
-        "x": 1210,
-        "y": 580,
+        "x": 950,
+        "y": 420,
         "wires": [
             [
                 "253bb22a54cc2ed6"
@@ -2287,213 +885,7 @@
         ]
     },
     {
-        "id": "253bb22a54cc2ed6",
-        "type": "mqtt out",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "topic": "home/sensors/room-2",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "8a45ccd334f47670",
-        "x": 1420,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "2f08f33edb595933",
-        "type": "join",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 670,
-        "y": 120,
-        "wires": [
-            [
-                "50e9c8330509e0b9"
-            ]
-        ]
-    },
-    {
-        "id": "50e9c8330509e0b9",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 810,
-        "y": 120,
-        "wires": [
-            [
-                "df82f2fe8d35b0c8"
-            ]
-        ]
-    },
-    {
-        "id": "818881097b1c2e92",
-        "type": "join",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 690,
-        "y": 480,
-        "wires": [
-            [
-                "e6920123aa7fee47"
-            ]
-        ]
-    },
-    {
-        "id": "e6920123aa7fee47",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 830,
-        "y": 480,
-        "wires": [
-            [
-                "df82f2fe8d35b0c8"
-            ]
-        ]
-    },
-    {
-        "id": "ae0b31f97260ffe5",
-        "type": "join",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 710,
-        "y": 900,
-        "wires": [
-            [
-                "2932d9d230761462"
-            ]
-        ]
-    },
-    {
-        "id": "2932d9d230761462",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 850,
-        "y": 900,
-        "wires": [
-            [
-                "df82f2fe8d35b0c8"
-            ]
-        ]
-    },
-    {
-        "id": "a70e147239dd31a2",
-        "type": "join",
-        "z": "4d6ea87134e4adb6",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 710,
-        "y": 1180,
-        "wires": [
-            [
-                "1f29cf6cd3d4ef3e"
-            ]
-        ]
-    },
-    {
-        "id": "1f29cf6cd3d4ef3e",
-        "type": "function",
-        "z": "4d6ea87134e4adb6",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nmsg.complete =\"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 850,
-        "y": 1180,
-        "wires": [
-            [
-                "df82f2fe8d35b0c8"
-            ]
-        ]
-    },
-    {
-        "id": "6c487fc92a7adc8d",
+        "id": "a2e866d3605e8ab7",
         "type": "function",
         "z": "4d6ea87134e4adb6",
         "name": "",
@@ -2503,16 +895,16 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 640,
+        "x": 520,
+        "y": 340,
         "wires": [
             [
-                "df82f2fe8d35b0c8"
+                "41320a64d4bcb80f"
             ]
         ]
     },
     {
-        "id": "8ee7d80229c4c5c3",
+        "id": "54702aeba5b57d1d",
         "type": "function",
         "z": "4d6ea87134e4adb6",
         "name": "",
@@ -2522,11 +914,149 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 700,
+        "x": 520,
+        "y": 500,
         "wires": [
             [
-                "df82f2fe8d35b0c8"
+                "41320a64d4bcb80f"
+            ]
+        ]
+    },
+    {
+        "id": "b91d89e0923f5395",
+        "type": "http request",
+        "z": "4d6ea87134e4adb6",
+        "name": "room-2-battery",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/home/sensors/room-2/battery",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 320,
+        "y": 660,
+        "wires": [
+            [
+                "62b6a34bc4bcce0d",
+                "924524d2d440809f",
+                "cbd69aea3fa482eb"
+            ]
+        ]
+    },
+    {
+        "id": "62b6a34bc4bcce0d",
+        "type": "function",
+        "z": "4d6ea87134e4adb6",
+        "name": "",
+        "func": "msg.payload = msg.payload.level\nmsg.topic = \"batteryLevel\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 580,
+        "wires": [
+            [
+                "41320a64d4bcb80f"
+            ]
+        ]
+    },
+    {
+        "id": "924524d2d440809f",
+        "type": "function",
+        "z": "4d6ea87134e4adb6",
+        "name": "",
+        "func": "msg.payload = msg.payload.output\nmsg.topic = \"batteryOutput\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 660,
+        "wires": [
+            [
+                "41320a64d4bcb80f"
+            ]
+        ]
+    },
+    {
+        "id": "cbd69aea3fa482eb",
+        "type": "function",
+        "z": "4d6ea87134e4adb6",
+        "name": "",
+        "func": "msg.payload = msg.payload.input\nmsg.topic = \"batteryInput\"\nmsg.complete = \"YES\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 740,
+        "wires": [
+            [
+                "41320a64d4bcb80f"
+            ]
+        ]
+    },
+    {
+        "id": "4ac6510b8bce1377",
+        "type": "function",
+        "z": "4d6ea87134e4adb6",
+        "name": "",
+        "func": "msg.payload = 100\nmsg.topic = \"batteryCapacity\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 260,
+        "wires": [
+            [
+                "41320a64d4bcb80f"
+            ]
+        ]
+    },
+    {
+        "id": "50e11ceefff40109",
+        "type": "function",
+        "z": "4d6ea87134e4adb6",
+        "name": "",
+        "func": "msg.payload = 25\nmsg.topic = \"sockets\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 180,
+        "wires": [
+            [
+                "41320a64d4bcb80f"
+            ]
+        ]
+    },
+    {
+        "id": "21f0a3190d78551b",
+        "type": "function",
+        "z": "4d6ea87134e4adb6",
+        "name": "",
+        "func": "msg.payload = 1\nmsg.topic = \"status\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 420,
+        "wires": [
+            [
+                "41320a64d4bcb80f"
             ]
         ]
     },
@@ -2554,596 +1084,13 @@
         "y": 500,
         "wires": [
             [
-                "d03dd78ff89d21a9",
-                "01c8665c1422ce4e",
-                "7d37766a7616efbc",
-                "1d032fd52366fa09",
-                "2f6509bd970da68d",
-                "e2d2ac7bd93e83e1",
-                "27372ac4d5c54019",
-                "ac0c72d14a6cef1a",
-                "cd6c06d27d276e28",
-                "aa6a1e77724f0a8e",
-                "214737a154ddc76c",
-                "50433e57dd1d08fb",
-                "db33f7ee2d673f71",
-                "2d62736798cb94e7",
-                "6b964ced914fd226",
-                "8acc56de4bd244a9"
-            ]
-        ]
-    },
-    {
-        "id": "d03dd78ff89d21a9",
-        "type": "http request",
-        "z": "4de722645afa96cc",
-        "name": "meeting-room-temp-1",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-3/temperature/1",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 360,
-        "y": 120,
-        "wires": [
-            [
-                "0962715db5c6aa96"
-            ]
-        ]
-    },
-    {
-        "id": "01c8665c1422ce4e",
-        "type": "http request",
-        "z": "4de722645afa96cc",
-        "name": "meeting-room-temp-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-3/temperature/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 360,
-        "y": 180,
-        "wires": [
-            [
-                "ef1cc86e42ace258"
-            ]
-        ]
-    },
-    {
-        "id": "7d37766a7616efbc",
-        "type": "http request",
-        "z": "4de722645afa96cc",
-        "name": "meeting-room-light",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-3/luminosity",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 350,
-        "y": 240,
-        "wires": [
-            [
-                "2f285acc9a6addf5"
-            ]
-        ]
-    },
-    {
-        "id": "1d032fd52366fa09",
-        "type": "http request",
-        "z": "4de722645afa96cc",
-        "name": "meeting-room-air-humidity",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-3/airHumidity",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 380,
-        "y": 300,
-        "wires": [
-            [
-                "8b530b8f8ebc687d"
-            ]
-        ]
-    },
-    {
-        "id": "2f6509bd970da68d",
-        "type": "http request",
-        "z": "4de722645afa96cc",
-        "name": "meeting-room-co2-meter-1",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-3/co2/1",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 380,
-        "y": 360,
-        "wires": [
-            [
-                "9f56210c52ae264e"
-            ]
-        ]
-    },
-    {
-        "id": "e2d2ac7bd93e83e1",
-        "type": "http request",
-        "z": "4de722645afa96cc",
-        "name": "meeting-room-co2-meter-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-3/co2/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 380,
-        "y": 420,
-        "wires": [
-            [
-                "b0ab4d93efe2342d"
-            ]
-        ]
-    },
-    {
-        "id": "27372ac4d5c54019",
-        "type": "http request",
-        "z": "4de722645afa96cc",
-        "name": "meeting-room-energy-1",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-3/energy/1",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 370,
-        "y": 600,
-        "wires": [
-            [
-                "fa50ad11ec87f25f"
-            ]
-        ]
-    },
-    {
-        "id": "ac0c72d14a6cef1a",
-        "type": "http request",
-        "z": "4de722645afa96cc",
-        "name": "meeting-room-energy-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-3/energy/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 370,
-        "y": 660,
-        "wires": [
-            [
-                "8dfeb8eb756c8ee4"
-            ]
-        ]
-    },
-    {
-        "id": "cd6c06d27d276e28",
-        "type": "http request",
-        "z": "4de722645afa96cc",
-        "name": "meeting-room-energy-3",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-3/energy/3",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 370,
-        "y": 720,
-        "wires": [
-            [
-                "d97263ca8675c9c5"
-            ]
-        ]
-    },
-    {
-        "id": "aa6a1e77724f0a8e",
-        "type": "http request",
-        "z": "4de722645afa96cc",
-        "name": "meeting-room-energy-4",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-3/energy/4",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 370,
-        "y": 780,
-        "wires": [
-            [
-                "e7561ec39f9bd8c5"
-            ]
-        ]
-    },
-    {
-        "id": "214737a154ddc76c",
-        "type": "http request",
-        "z": "4de722645afa96cc",
-        "name": "meeting-room-energy-5",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-3/energy/5",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 370,
-        "y": 840,
-        "wires": [
-            [
-                "52358aed1fc5bef1"
-            ]
-        ]
-    },
-    {
-        "id": "0962715db5c6aa96",
-        "type": "function",
-        "z": "4de722645afa96cc",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"temp-1\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 120,
-        "wires": [
-            [
-                "4590bfcc7f0b5fc0"
-            ]
-        ]
-    },
-    {
-        "id": "ef1cc86e42ace258",
-        "type": "function",
-        "z": "4de722645afa96cc",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"temp\"\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 180,
-        "wires": [
-            [
-                "4590bfcc7f0b5fc0"
-            ]
-        ]
-    },
-    {
-        "id": "2f285acc9a6addf5",
-        "type": "function",
-        "z": "4de722645afa96cc",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"light\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 240,
-        "wires": [
-            [
-                "beb958da645a8af8"
-            ]
-        ]
-    },
-    {
-        "id": "8b530b8f8ebc687d",
-        "type": "function",
-        "z": "4de722645afa96cc",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"humidity\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 300,
-        "wires": [
-            [
-                "beb958da645a8af8"
-            ]
-        ]
-    },
-    {
-        "id": "9f56210c52ae264e",
-        "type": "function",
-        "z": "4de722645afa96cc",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"co2-1\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 360,
-        "wires": [
-            [
-                "b188cf6338989fd7"
-            ]
-        ]
-    },
-    {
-        "id": "b0ab4d93efe2342d",
-        "type": "function",
-        "z": "4de722645afa96cc",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"co2\"\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 420,
-        "wires": [
-            [
-                "b188cf6338989fd7"
-            ]
-        ]
-    },
-    {
-        "id": "fa50ad11ec87f25f",
-        "type": "function",
-        "z": "4de722645afa96cc",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-1\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 600,
-        "wires": [
-            [
-                "bad75488c07d107f"
-            ]
-        ]
-    },
-    {
-        "id": "8dfeb8eb756c8ee4",
-        "type": "function",
-        "z": "4de722645afa96cc",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-2\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 660,
-        "wires": [
-            [
-                "bad75488c07d107f"
-            ]
-        ]
-    },
-    {
-        "id": "d97263ca8675c9c5",
-        "type": "function",
-        "z": "4de722645afa96cc",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-3\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 720,
-        "wires": [
-            [
-                "bad75488c07d107f"
-            ]
-        ]
-    },
-    {
-        "id": "e7561ec39f9bd8c5",
-        "type": "function",
-        "z": "4de722645afa96cc",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-4\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 780,
-        "wires": [
-            [
-                "bad75488c07d107f"
-            ]
-        ]
-    },
-    {
-        "id": "52358aed1fc5bef1",
-        "type": "function",
-        "z": "4de722645afa96cc",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy\"\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 840,
-        "wires": [
-            [
-                "bad75488c07d107f"
-            ]
-        ]
-    },
-    {
-        "id": "50433e57dd1d08fb",
-        "type": "http request",
-        "z": "4de722645afa96cc",
-        "name": "meeting-room-fire-1",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-3/fire/1",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 380,
-        "y": 900,
-        "wires": [
-            [
-                "18d180854bbb854f"
-            ]
-        ]
-    },
-    {
-        "id": "db33f7ee2d673f71",
-        "type": "http request",
-        "z": "4de722645afa96cc",
-        "name": "meeting-room-fire-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-3/fire/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 380,
-        "y": 960,
-        "wires": [
-            [
-                "2d23a94447e7b43f"
-            ]
-        ]
-    },
-    {
-        "id": "2d62736798cb94e7",
-        "type": "http request",
-        "z": "4de722645afa96cc",
-        "name": "meeting-room-fire-3",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-3/fire/3",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 380,
-        "y": 1020,
-        "wires": [
-            [
-                "6fd910d6c207acc4"
-            ]
-        ]
-    },
-    {
-        "id": "18d180854bbb854f",
-        "type": "function",
-        "z": "4de722645afa96cc",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"fire-1\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 900,
-        "wires": [
-            [
-                "5f69fb24cf7ae79d"
-            ]
-        ]
-    },
-    {
-        "id": "2d23a94447e7b43f",
-        "type": "function",
-        "z": "4de722645afa96cc",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"fire-2\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 960,
-        "wires": [
-            [
-                "5f69fb24cf7ae79d"
-            ]
-        ]
-    },
-    {
-        "id": "6fd910d6c207acc4",
-        "type": "function",
-        "z": "4de722645afa96cc",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"fire\"\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 1020,
-        "wires": [
-            [
-                "5f69fb24cf7ae79d"
+                "6ee60554152e34ff",
+                "db567ac5db1406f6",
+                "d725f296e1beed09",
+                "1340fed289b6be1e",
+                "ca8e02343261c2e0",
+                "68e723dc7fb5afdf",
+                "53fc3b933e490e38"
             ]
         ]
     },
@@ -3167,8 +1114,8 @@
         "reduceInit": "",
         "reduceInitType": "num",
         "reduceFixup": "",
-        "x": 1070,
-        "y": 480,
+        "x": 870,
+        "y": 500,
         "wires": [
             [
                 "135da21667f43d59"
@@ -3183,8 +1130,8 @@
         "property": "payload",
         "action": "",
         "pretty": true,
-        "x": 1230,
-        "y": 480,
+        "x": 1030,
+        "y": 500,
         "wires": [
             [
                 "111f058bd694e0d4"
@@ -3196,7 +1143,7 @@
         "type": "mqtt out",
         "z": "4de722645afa96cc",
         "name": "",
-        "topic": "home/sensors/room-3",
+        "topic": "home/sensors/room3",
         "qos": "0",
         "retain": "",
         "respTopic": "",
@@ -3205,12 +1152,53 @@
         "correl": "",
         "expiry": "",
         "broker": "8a45ccd334f47670",
-        "x": 1440,
-        "y": 480,
+        "x": 1240,
+        "y": 500,
         "wires": []
     },
     {
-        "id": "6b964ced914fd226",
+        "id": "6ee60554152e34ff",
+        "type": "http request",
+        "z": "4de722645afa96cc",
+        "name": "room-3-energy",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/home/sensors/room-3/energy",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 420,
+        "y": 180,
+        "wires": [
+            [
+                "1f1a4fbfdd0aa434"
+            ]
+        ]
+    },
+    {
+        "id": "1f1a4fbfdd0aa434",
+        "type": "function",
+        "z": "4de722645afa96cc",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energyDemand\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 180,
+        "wires": [
+            [
+                "beb958da645a8af8"
+            ]
+        ]
+    },
+    {
+        "id": "ca8e02343261c2e0",
         "type": "function",
         "z": "4de722645afa96cc",
         "name": "",
@@ -3220,8 +1208,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 480,
+        "x": 620,
+        "y": 420,
         "wires": [
             [
                 "beb958da645a8af8"
@@ -3229,18 +1217,18 @@
         ]
     },
     {
-        "id": "8acc56de4bd244a9",
+        "id": "53fc3b933e490e38",
         "type": "function",
         "z": "4de722645afa96cc",
         "name": "",
-        "func": "msg.payload = \"meeting-room\"\nmsg.topic = \"roomName\"\nreturn msg",
+        "func": "msg.payload = \"room-3\"\nmsg.topic = \"roomName\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 540,
+        "x": 620,
+        "y": 580,
         "wires": [
             [
                 "beb958da645a8af8"
@@ -3248,212 +1236,140 @@
         ]
     },
     {
-        "id": "4590bfcc7f0b5fc0",
-        "type": "join",
-        "z": "4de722645afa96cc",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 750,
-        "y": 160,
-        "wires": [
-            [
-                "f323a2c21da18420"
-            ]
-        ]
-    },
-    {
-        "id": "f323a2c21da18420",
-        "type": "function",
-        "z": "4de722645afa96cc",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 890,
-        "y": 160,
-        "wires": [
-            [
-                "beb958da645a8af8"
-            ]
-        ]
-    },
-    {
-        "id": "b188cf6338989fd7",
-        "type": "join",
-        "z": "4de722645afa96cc",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 750,
-        "y": 380,
-        "wires": [
-            [
-                "473506446dfce95d"
-            ]
-        ]
-    },
-    {
-        "id": "473506446dfce95d",
-        "type": "function",
-        "z": "4de722645afa96cc",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 890,
-        "y": 380,
-        "wires": [
-            [
-                "beb958da645a8af8"
-            ]
-        ]
-    },
-    {
-        "id": "bad75488c07d107f",
-        "type": "join",
-        "z": "4de722645afa96cc",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 770,
-        "y": 720,
-        "wires": [
-            [
-                "7e37fa18eb0fbc0c"
-            ]
-        ]
-    },
-    {
-        "id": "7e37fa18eb0fbc0c",
-        "type": "function",
-        "z": "4de722645afa96cc",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 910,
-        "y": 720,
-        "wires": [
-            [
-                "beb958da645a8af8"
-            ]
-        ]
-    },
-    {
-        "id": "5f69fb24cf7ae79d",
-        "type": "join",
-        "z": "4de722645afa96cc",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 770,
-        "y": 960,
-        "wires": [
-            [
-                "0772396bb78a2824"
-            ]
-        ]
-    },
-    {
-        "id": "0772396bb78a2824",
-        "type": "function",
-        "z": "4de722645afa96cc",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 910,
-        "y": 960,
-        "wires": [
-            [
-                "beb958da645a8af8"
-            ]
-        ]
-    },
-    {
-        "id": "44c759fa3d2d157c",
+        "id": "db567ac5db1406f6",
         "type": "http request",
-        "z": "2566bd04b1530eee",
-        "name": "kitchen-temp-1",
+        "z": "4de722645afa96cc",
+        "name": "room-3-battery",
         "method": "GET",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-4/temperature/1",
+        "url": "http://web:8000/home/sensors/room-3/battery",
         "tls": "",
         "persist": false,
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 300,
-        "y": 60,
+        "x": 420,
+        "y": 740,
         "wires": [
             [
-                "e33523fa91e05170"
+                "b7d913a46804814a",
+                "365da3b087c8a5d6",
+                "5e7b89b13641d6a0"
+            ]
+        ]
+    },
+    {
+        "id": "b7d913a46804814a",
+        "type": "function",
+        "z": "4de722645afa96cc",
+        "name": "",
+        "func": "msg.payload = msg.payload.level\nmsg.topic = \"batteryLevel\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 660,
+        "wires": [
+            [
+                "beb958da645a8af8"
+            ]
+        ]
+    },
+    {
+        "id": "365da3b087c8a5d6",
+        "type": "function",
+        "z": "4de722645afa96cc",
+        "name": "",
+        "func": "msg.payload = msg.payload.output\nmsg.topic = \"batteryOutput\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 740,
+        "wires": [
+            [
+                "beb958da645a8af8"
+            ]
+        ]
+    },
+    {
+        "id": "5e7b89b13641d6a0",
+        "type": "function",
+        "z": "4de722645afa96cc",
+        "name": "",
+        "func": "msg.payload = msg.payload.input\nmsg.topic = \"batteryInput\"\nmsg.complete = \"YES\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 820,
+        "wires": [
+            [
+                "beb958da645a8af8"
+            ]
+        ]
+    },
+    {
+        "id": "1340fed289b6be1e",
+        "type": "function",
+        "z": "4de722645afa96cc",
+        "name": "",
+        "func": "msg.payload = 100\nmsg.topic = \"batteryCapacity\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 340,
+        "wires": [
+            [
+                "beb958da645a8af8"
+            ]
+        ]
+    },
+    {
+        "id": "d725f296e1beed09",
+        "type": "function",
+        "z": "4de722645afa96cc",
+        "name": "",
+        "func": "msg.payload = 40\nmsg.topic = \"sockets\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 260,
+        "wires": [
+            [
+                "beb958da645a8af8"
+            ]
+        ]
+    },
+    {
+        "id": "68e723dc7fb5afdf",
+        "type": "function",
+        "z": "4de722645afa96cc",
+        "name": "",
+        "func": "msg.payload = 1\nmsg.topic = \"status\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 500,
+        "wires": [
+            [
+                "beb958da645a8af8"
             ]
         ]
     },
@@ -3481,616 +1397,13 @@
         "y": 440,
         "wires": [
             [
-                "44c759fa3d2d157c",
-                "1539cc169bfdb514",
-                "bc81ec706d9cf473",
-                "ff73f01dfbfe56fb",
-                "2aba3fc0c7ceec3e",
-                "b511a50ec0171052",
-                "c808f74605b70f55",
-                "2132a5dd7cd585a8",
-                "7e24060fb3e8d5f8",
-                "a8e8427665bf0491",
-                "841a22aaddea54f4",
-                "395af583d96b2a60",
-                "27a72a0127789e90",
-                "f194c372ce7b1cea",
-                "3f3fa5f091294cb9",
-                "42ed3750242fa189",
-                "5060dd1375041474"
-            ]
-        ]
-    },
-    {
-        "id": "e33523fa91e05170",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"temp-1\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 60,
-        "wires": [
-            [
-                "a2ad713b27610cf2"
-            ]
-        ]
-    },
-    {
-        "id": "1539cc169bfdb514",
-        "type": "http request",
-        "z": "2566bd04b1530eee",
-        "name": "kitchen-temp-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-4/temperature/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 300,
-        "y": 120,
-        "wires": [
-            [
-                "a2084f2899e27ffe"
-            ]
-        ]
-    },
-    {
-        "id": "bc81ec706d9cf473",
-        "type": "http request",
-        "z": "2566bd04b1530eee",
-        "name": "kitchen-light",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-4/luminosity",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 290,
-        "y": 180,
-        "wires": [
-            [
-                "88adf6d5f49d7a5b"
-            ]
-        ]
-    },
-    {
-        "id": "ff73f01dfbfe56fb",
-        "type": "http request",
-        "z": "2566bd04b1530eee",
-        "name": "kitchen-air-humidity",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-4/airHumidity",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 320,
-        "y": 240,
-        "wires": [
-            [
-                "8bc110e9353c07f5"
-            ]
-        ]
-    },
-    {
-        "id": "2aba3fc0c7ceec3e",
-        "type": "http request",
-        "z": "2566bd04b1530eee",
-        "name": "kitchen-co2-meter-1",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-4/co2/1",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 320,
-        "y": 300,
-        "wires": [
-            [
-                "03cf8a645647e9b6"
-            ]
-        ]
-    },
-    {
-        "id": "b511a50ec0171052",
-        "type": "http request",
-        "z": "2566bd04b1530eee",
-        "name": "kitchen-co2-meter-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-4/co2/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 320,
-        "y": 360,
-        "wires": [
-            [
-                "6f3d3585fb137ea8"
-            ]
-        ]
-    },
-    {
-        "id": "c808f74605b70f55",
-        "type": "http request",
-        "z": "2566bd04b1530eee",
-        "name": "kitchen-energy-1",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-4/energy/1",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 540,
-        "wires": [
-            [
-                "3f968ff5953f34f3"
-            ]
-        ]
-    },
-    {
-        "id": "2132a5dd7cd585a8",
-        "type": "http request",
-        "z": "2566bd04b1530eee",
-        "name": "kitchen-energy-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-4/energy/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 600,
-        "wires": [
-            [
-                "ec861f2695b57dbb"
-            ]
-        ]
-    },
-    {
-        "id": "7e24060fb3e8d5f8",
-        "type": "http request",
-        "z": "2566bd04b1530eee",
-        "name": "kitchen-energy-3",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-4/energy/3",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 660,
-        "wires": [
-            [
-                "956a84a55da77a26"
-            ]
-        ]
-    },
-    {
-        "id": "a8e8427665bf0491",
-        "type": "http request",
-        "z": "2566bd04b1530eee",
-        "name": "kitchen-energy-4",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-4/energy/4",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 720,
-        "wires": [
-            [
-                "b406e35c4bdfab29"
-            ]
-        ]
-    },
-    {
-        "id": "841a22aaddea54f4",
-        "type": "http request",
-        "z": "2566bd04b1530eee",
-        "name": "kitchen-fire-1",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-4/fire/1",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 290,
-        "y": 780,
-        "wires": [
-            [
-                "57cc024f7475388e"
-            ]
-        ]
-    },
-    {
-        "id": "395af583d96b2a60",
-        "type": "http request",
-        "z": "2566bd04b1530eee",
-        "name": "kitchen-fire-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-4/fire/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 290,
-        "y": 840,
-        "wires": [
-            [
-                "bd294d90377d7a05"
-            ]
-        ]
-    },
-    {
-        "id": "27a72a0127789e90",
-        "type": "http request",
-        "z": "2566bd04b1530eee",
-        "name": "kitchen-fire-3",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-4/fire/3",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 290,
-        "y": 900,
-        "wires": [
-            [
-                "22dcf24206e6ac93"
-            ]
-        ]
-    },
-    {
-        "id": "a2084f2899e27ffe",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"temp\"\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 120,
-        "wires": [
-            [
-                "a2ad713b27610cf2"
-            ]
-        ]
-    },
-    {
-        "id": "88adf6d5f49d7a5b",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"light\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 180,
-        "wires": [
-            [
-                "466a68b7d05a6f8f"
-            ]
-        ]
-    },
-    {
-        "id": "8bc110e9353c07f5",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"humidity\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 240,
-        "wires": [
-            [
-                "466a68b7d05a6f8f"
-            ]
-        ]
-    },
-    {
-        "id": "03cf8a645647e9b6",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"co2-1\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 300,
-        "wires": [
-            [
-                "53b998362e3ebf78"
-            ]
-        ]
-    },
-    {
-        "id": "6f3d3585fb137ea8",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"co2\"\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 360,
-        "wires": [
-            [
-                "53b998362e3ebf78"
-            ]
-        ]
-    },
-    {
-        "id": "3f968ff5953f34f3",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-1\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 540,
-        "wires": [
-            [
-                "96cbb127fb2d2c18"
-            ]
-        ]
-    },
-    {
-        "id": "ec861f2695b57dbb",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-2\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 600,
-        "wires": [
-            [
-                "96cbb127fb2d2c18"
-            ]
-        ]
-    },
-    {
-        "id": "956a84a55da77a26",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-3\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 660,
-        "wires": [
-            [
-                "96cbb127fb2d2c18"
-            ]
-        ]
-    },
-    {
-        "id": "b406e35c4bdfab29",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy\"\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 720,
-        "wires": [
-            [
-                "96cbb127fb2d2c18"
-            ]
-        ]
-    },
-    {
-        "id": "57cc024f7475388e",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"fire-1\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 780,
-        "wires": [
-            [
-                "991a89f2ffdf88e2"
-            ]
-        ]
-    },
-    {
-        "id": "bd294d90377d7a05",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"fire-2\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 840,
-        "wires": [
-            [
-                "991a89f2ffdf88e2"
-            ]
-        ]
-    },
-    {
-        "id": "22dcf24206e6ac93",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"fire\"\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 900,
-        "wires": [
-            [
-                "991a89f2ffdf88e2"
-            ]
-        ]
-    },
-    {
-        "id": "f194c372ce7b1cea",
-        "type": "http request",
-        "z": "2566bd04b1530eee",
-        "name": "kitchen-water-1",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-4/water/1",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 300,
-        "y": 960,
-        "wires": [
-            [
-                "b561eba625e0fb3c"
-            ]
-        ]
-    },
-    {
-        "id": "b561eba625e0fb3c",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"water-1\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 960,
-        "wires": [
-            [
-                "4f15e2cc07230677"
-            ]
-        ]
-    },
-    {
-        "id": "3f3fa5f091294cb9",
-        "type": "http request",
-        "z": "2566bd04b1530eee",
-        "name": "kitchen-water-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-4/water/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 300,
-        "y": 1020,
-        "wires": [
-            [
-                "6578f891934d1c5c"
-            ]
-        ]
-    },
-    {
-        "id": "6578f891934d1c5c",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"water\"\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 1020,
-        "wires": [
-            [
-                "4f15e2cc07230677"
+                "e1bb580166fc6607",
+                "fde725d01428c60f",
+                "e08e82f694e47048",
+                "b96929df6ad1ef8d",
+                "126a8486bfadd025",
+                "99281cb5edbb1d9c",
+                "ece44a80e54cc1f3"
             ]
         ]
     },
@@ -4114,8 +1427,8 @@
         "reduceInit": "",
         "reduceInitType": "num",
         "reduceFixup": "",
-        "x": 1050,
-        "y": 480,
+        "x": 690,
+        "y": 440,
         "wires": [
             [
                 "1d05ce178082e649"
@@ -4130,8 +1443,8 @@
         "property": "payload",
         "action": "",
         "pretty": true,
-        "x": 1210,
-        "y": 480,
+        "x": 850,
+        "y": 440,
         "wires": [
             [
                 "1d971abb4bd83019"
@@ -4143,7 +1456,7 @@
         "type": "mqtt out",
         "z": "2566bd04b1530eee",
         "name": "",
-        "topic": "home/sensors/room-4",
+        "topic": "home/sensors/room4",
         "qos": "0",
         "retain": "",
         "respTopic": "",
@@ -4152,12 +1465,53 @@
         "correl": "",
         "expiry": "",
         "broker": "8a45ccd334f47670",
-        "x": 1420,
-        "y": 480,
+        "x": 1080,
+        "y": 440,
         "wires": []
     },
     {
-        "id": "42ed3750242fa189",
+        "id": "e1bb580166fc6607",
+        "type": "http request",
+        "z": "2566bd04b1530eee",
+        "name": "room-4-energy",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/home/sensors/room-4/energy",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 280,
+        "y": 120,
+        "wires": [
+            [
+                "e6b50784be58d926"
+            ]
+        ]
+    },
+    {
+        "id": "e6b50784be58d926",
+        "type": "function",
+        "z": "2566bd04b1530eee",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energyDemand\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 120,
+        "wires": [
+            [
+                "466a68b7d05a6f8f"
+            ]
+        ]
+    },
+    {
+        "id": "99281cb5edbb1d9c",
         "type": "function",
         "z": "2566bd04b1530eee",
         "name": "",
@@ -4167,8 +1521,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
-        "y": 420,
+        "x": 480,
+        "y": 360,
         "wires": [
             [
                 "466a68b7d05a6f8f"
@@ -4176,18 +1530,18 @@
         ]
     },
     {
-        "id": "5060dd1375041474",
+        "id": "b96929df6ad1ef8d",
         "type": "function",
         "z": "2566bd04b1530eee",
         "name": "",
-        "func": "msg.payload = \"kitchen\"\nmsg.topic = \"roomName\"\nreturn msg",
+        "func": "msg.payload = \"room-4\"\nmsg.topic = \"roomName\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
-        "y": 480,
+        "x": 480,
+        "y": 520,
         "wires": [
             [
                 "466a68b7d05a6f8f"
@@ -4195,259 +1549,140 @@
         ]
     },
     {
-        "id": "a2ad713b27610cf2",
-        "type": "join",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 710,
-        "y": 100,
-        "wires": [
-            [
-                "72af505441519adf"
-            ]
-        ]
-    },
-    {
-        "id": "72af505441519adf",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 850,
-        "y": 100,
-        "wires": [
-            [
-                "466a68b7d05a6f8f"
-            ]
-        ]
-    },
-    {
-        "id": "53b998362e3ebf78",
-        "type": "join",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 710,
-        "y": 320,
-        "wires": [
-            [
-                "51371f6178d8ac33"
-            ]
-        ]
-    },
-    {
-        "id": "51371f6178d8ac33",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 850,
-        "y": 320,
-        "wires": [
-            [
-                "466a68b7d05a6f8f"
-            ]
-        ]
-    },
-    {
-        "id": "96cbb127fb2d2c18",
-        "type": "join",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 690,
-        "y": 620,
-        "wires": [
-            [
-                "2c1b141045149f38"
-            ]
-        ]
-    },
-    {
-        "id": "2c1b141045149f38",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 830,
-        "y": 620,
-        "wires": [
-            [
-                "466a68b7d05a6f8f"
-            ]
-        ]
-    },
-    {
-        "id": "991a89f2ffdf88e2",
-        "type": "join",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 690,
-        "y": 840,
-        "wires": [
-            [
-                "f05e533c76bbf650"
-            ]
-        ]
-    },
-    {
-        "id": "f05e533c76bbf650",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 830,
-        "y": 840,
-        "wires": [
-            [
-                "466a68b7d05a6f8f"
-            ]
-        ]
-    },
-    {
-        "id": "4f15e2cc07230677",
-        "type": "join",
-        "z": "2566bd04b1530eee",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 690,
-        "y": 980,
-        "wires": [
-            [
-                "8ede9b221923fe9f"
-            ]
-        ]
-    },
-    {
-        "id": "8ede9b221923fe9f",
-        "type": "function",
-        "z": "2566bd04b1530eee",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 830,
-        "y": 980,
-        "wires": [
-            [
-                "466a68b7d05a6f8f"
-            ]
-        ]
-    },
-    {
-        "id": "66547438a7834e7c",
+        "id": "fde725d01428c60f",
         "type": "http request",
-        "z": "ba0c76d3615074a6",
-        "name": "bathroom-temp-1",
+        "z": "2566bd04b1530eee",
+        "name": "room-4-battery",
         "method": "GET",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-5/temperature/1",
+        "url": "http://web:8000/home/sensors/room-4/battery",
         "tls": "",
         "persist": false,
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 310,
-        "y": 220,
+        "x": 280,
+        "y": 680,
         "wires": [
             [
-                "f087439cfa8070a6"
+                "053cad078c3252c4",
+                "4e8350206168c05e",
+                "590cc535cc0751d1"
+            ]
+        ]
+    },
+    {
+        "id": "053cad078c3252c4",
+        "type": "function",
+        "z": "2566bd04b1530eee",
+        "name": "",
+        "func": "msg.payload = msg.payload.level\nmsg.topic = \"batteryLevel\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 600,
+        "wires": [
+            [
+                "466a68b7d05a6f8f"
+            ]
+        ]
+    },
+    {
+        "id": "4e8350206168c05e",
+        "type": "function",
+        "z": "2566bd04b1530eee",
+        "name": "",
+        "func": "msg.payload = msg.payload.output\nmsg.topic = \"batteryOutput\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 680,
+        "wires": [
+            [
+                "466a68b7d05a6f8f"
+            ]
+        ]
+    },
+    {
+        "id": "590cc535cc0751d1",
+        "type": "function",
+        "z": "2566bd04b1530eee",
+        "name": "",
+        "func": "msg.payload = msg.payload.input\nmsg.topic = \"batteryInput\"\nmsg.complete = \"YES\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 760,
+        "wires": [
+            [
+                "466a68b7d05a6f8f"
+            ]
+        ]
+    },
+    {
+        "id": "ece44a80e54cc1f3",
+        "type": "function",
+        "z": "2566bd04b1530eee",
+        "name": "",
+        "func": "msg.payload = 100\nmsg.topic = \"batteryCapacity\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 280,
+        "wires": [
+            [
+                "466a68b7d05a6f8f"
+            ]
+        ]
+    },
+    {
+        "id": "e08e82f694e47048",
+        "type": "function",
+        "z": "2566bd04b1530eee",
+        "name": "",
+        "func": "msg.payload = 8\nmsg.topic = \"sockets\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 200,
+        "wires": [
+            [
+                "466a68b7d05a6f8f"
+            ]
+        ]
+    },
+    {
+        "id": "126a8486bfadd025",
+        "type": "function",
+        "z": "2566bd04b1530eee",
+        "name": "",
+        "func": "msg.payload = 1\nmsg.topic = \"status\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 440,
+        "wires": [
+            [
+                "466a68b7d05a6f8f"
             ]
         ]
     },
@@ -4475,532 +1710,13 @@
         "y": 420,
         "wires": [
             [
-                "66547438a7834e7c",
-                "fdbf7058d608c40a",
-                "3d3f8af21e549475",
-                "b31a9ed024e2537a",
-                "d16c6319f6561e51",
-                "e2a99d9660ec78d5",
-                "d61877a05f463fce",
-                "c8d40b2b3527cd10",
-                "2d0a567b47dc4b34",
-                "43d944e315c61bb8",
-                "ac8f7ca350939176",
-                "d3eac95c89d8c1da",
-                "fc50af0378a83205",
-                "f4aaa1066d371226",
-                "50ced3d3a7a82136"
-            ]
-        ]
-    },
-    {
-        "id": "f087439cfa8070a6",
-        "type": "function",
-        "z": "ba0c76d3615074a6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"temp-1\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 220,
-        "wires": [
-            [
-                "7fc9d05b40366b16"
-            ]
-        ]
-    },
-    {
-        "id": "fdbf7058d608c40a",
-        "type": "http request",
-        "z": "ba0c76d3615074a6",
-        "name": "bathroom-temp-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-5/temperature/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 280,
-        "wires": [
-            [
-                "0aba1d1ce6849d88"
-            ]
-        ]
-    },
-    {
-        "id": "3d3f8af21e549475",
-        "type": "http request",
-        "z": "ba0c76d3615074a6",
-        "name": "bathroom-light",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-5/luminosity",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 300,
-        "y": 340,
-        "wires": [
-            [
-                "4f730a455814fadd"
-            ]
-        ]
-    },
-    {
-        "id": "b31a9ed024e2537a",
-        "type": "http request",
-        "z": "ba0c76d3615074a6",
-        "name": "bathroom-energy-1",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-5/energy/1",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 520,
-        "wires": [
-            [
-                "56f9d20dfa84e562"
-            ]
-        ]
-    },
-    {
-        "id": "d16c6319f6561e51",
-        "type": "http request",
-        "z": "ba0c76d3615074a6",
-        "name": "bathroom-energy-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-5/energy/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 580,
-        "wires": [
-            [
-                "c54b23414dbc25b3"
-            ]
-        ]
-    },
-    {
-        "id": "e2a99d9660ec78d5",
-        "type": "http request",
-        "z": "ba0c76d3615074a6",
-        "name": "bathroom-energy-3",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-5/energy/3",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 640,
-        "wires": [
-            [
-                "7326894b7b50484a"
-            ]
-        ]
-    },
-    {
-        "id": "d61877a05f463fce",
-        "type": "http request",
-        "z": "ba0c76d3615074a6",
-        "name": "bathroom-energy-4",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-5/energy/4",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 700,
-        "wires": [
-            [
-                "1644cad4af0c5199"
-            ]
-        ]
-    },
-    {
-        "id": "0aba1d1ce6849d88",
-        "type": "function",
-        "z": "ba0c76d3615074a6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"temp\"\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 280,
-        "wires": [
-            [
-                "7fc9d05b40366b16"
-            ]
-        ]
-    },
-    {
-        "id": "4f730a455814fadd",
-        "type": "function",
-        "z": "ba0c76d3615074a6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"light\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 340,
-        "wires": [
-            [
-                "b5af744a5369f84b"
-            ]
-        ]
-    },
-    {
-        "id": "56f9d20dfa84e562",
-        "type": "function",
-        "z": "ba0c76d3615074a6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-1\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 520,
-        "wires": [
-            [
-                "d84ab10278a24c0d"
-            ]
-        ]
-    },
-    {
-        "id": "c54b23414dbc25b3",
-        "type": "function",
-        "z": "ba0c76d3615074a6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-2\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 580,
-        "wires": [
-            [
-                "d84ab10278a24c0d"
-            ]
-        ]
-    },
-    {
-        "id": "7326894b7b50484a",
-        "type": "function",
-        "z": "ba0c76d3615074a6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy-3\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 640,
-        "wires": [
-            [
-                "d84ab10278a24c0d"
-            ]
-        ]
-    },
-    {
-        "id": "1644cad4af0c5199",
-        "type": "function",
-        "z": "ba0c76d3615074a6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energy\"\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 700,
-        "wires": [
-            [
-                "d84ab10278a24c0d"
-            ]
-        ]
-    },
-    {
-        "id": "c8d40b2b3527cd10",
-        "type": "http request",
-        "z": "ba0c76d3615074a6",
-        "name": "bathroom-water-1",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-5/water/1",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 760,
-        "wires": [
-            [
-                "c78467616d8e7b67"
-            ]
-        ]
-    },
-    {
-        "id": "c78467616d8e7b67",
-        "type": "function",
-        "z": "ba0c76d3615074a6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"water-1\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 760,
-        "wires": [
-            [
-                "e32cf5604ac2dc4e"
-            ]
-        ]
-    },
-    {
-        "id": "bf8248f1cca8d341",
-        "type": "function",
-        "z": "ba0c76d3615074a6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"water-2\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 820,
-        "wires": [
-            [
-                "e32cf5604ac2dc4e"
-            ]
-        ]
-    },
-    {
-        "id": "2d0a567b47dc4b34",
-        "type": "http request",
-        "z": "ba0c76d3615074a6",
-        "name": "bathroom-water-2",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-5/water/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 820,
-        "wires": [
-            [
-                "bf8248f1cca8d341"
-            ]
-        ]
-    },
-    {
-        "id": "43d944e315c61bb8",
-        "type": "http request",
-        "z": "ba0c76d3615074a6",
-        "name": "bathroom-water-3",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-5/water/3",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 880,
-        "wires": [
-            [
-                "2aed7bded64a4789"
-            ]
-        ]
-    },
-    {
-        "id": "ac8f7ca350939176",
-        "type": "http request",
-        "z": "ba0c76d3615074a6",
-        "name": "bathroom-water-4",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-5/water/4",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 940,
-        "wires": [
-            [
-                "d2247e6ef46dbe8c"
-            ]
-        ]
-    },
-    {
-        "id": "d2247e6ef46dbe8c",
-        "type": "function",
-        "z": "ba0c76d3615074a6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"water-4\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 940,
-        "wires": [
-            [
-                "e32cf5604ac2dc4e"
-            ]
-        ]
-    },
-    {
-        "id": "2aed7bded64a4789",
-        "type": "function",
-        "z": "ba0c76d3615074a6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"water-3\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 880,
-        "wires": [
-            [
-                "e32cf5604ac2dc4e"
-            ]
-        ]
-    },
-    {
-        "id": "d3eac95c89d8c1da",
-        "type": "http request",
-        "z": "ba0c76d3615074a6",
-        "name": "bathroom-water-5",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-5/water/5",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 1000,
-        "wires": [
-            [
-                "34817f632e85c37a"
-            ]
-        ]
-    },
-    {
-        "id": "fc50af0378a83205",
-        "type": "http request",
-        "z": "ba0c76d3615074a6",
-        "name": "bathroom-water-6",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/room-5/water/6",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 310,
-        "y": 1060,
-        "wires": [
-            [
-                "0ff33d05d7e740a6"
-            ]
-        ]
-    },
-    {
-        "id": "0ff33d05d7e740a6",
-        "type": "function",
-        "z": "ba0c76d3615074a6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"water\"\nmsg.complete = \"YES\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 1060,
-        "wires": [
-            [
-                "e32cf5604ac2dc4e"
-            ]
-        ]
-    },
-    {
-        "id": "34817f632e85c37a",
-        "type": "function",
-        "z": "ba0c76d3615074a6",
-        "name": "",
-        "func": "msg.payload = msg.payload.data\nmsg.topic = \"water-5\"\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 540,
-        "y": 1000,
-        "wires": [
-            [
-                "e32cf5604ac2dc4e"
+                "df9730f2667c64cd",
+                "f8af56ade312c76b",
+                "2c3dffba55ce9cbc",
+                "735b932062d1b4c7",
+                "6dccc5a58ca3c86f",
+                "baddb38e8fb5dd78",
+                "2eec5438b15376a4"
             ]
         ]
     },
@@ -5012,8 +1728,8 @@
         "property": "payload",
         "action": "",
         "pretty": true,
-        "x": 1170,
-        "y": 520,
+        "x": 850,
+        "y": 420,
         "wires": [
             [
                 "df68e0542c396a37"
@@ -5040,8 +1756,8 @@
         "reduceInit": "",
         "reduceInitType": "num",
         "reduceFixup": "",
-        "x": 1030,
-        "y": 520,
+        "x": 710,
+        "y": 420,
         "wires": [
             [
                 "d6e418d5045f87e8"
@@ -5053,7 +1769,7 @@
         "type": "mqtt out",
         "z": "ba0c76d3615074a6",
         "name": "",
-        "topic": "home/sensors/room-5",
+        "topic": "home/sensors/room5",
         "qos": "0",
         "retain": "",
         "respTopic": "",
@@ -5062,12 +1778,53 @@
         "correl": "",
         "expiry": "",
         "broker": "8a45ccd334f47670",
-        "x": 1400,
-        "y": 520,
+        "x": 1080,
+        "y": 420,
         "wires": []
     },
     {
-        "id": "f4aaa1066d371226",
+        "id": "df9730f2667c64cd",
+        "type": "http request",
+        "z": "ba0c76d3615074a6",
+        "name": "room-5-energy",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/home/sensors/room-5/energy",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 280,
+        "y": 100,
+        "wires": [
+            [
+                "062e86814ff32f29"
+            ]
+        ]
+    },
+    {
+        "id": "062e86814ff32f29",
+        "type": "function",
+        "z": "ba0c76d3615074a6",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energyDemand\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 100,
+        "wires": [
+            [
+                "b5af744a5369f84b"
+            ]
+        ]
+    },
+    {
+        "id": "735b932062d1b4c7",
         "type": "function",
         "z": "ba0c76d3615074a6",
         "name": "",
@@ -5077,8 +1834,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
-        "y": 400,
+        "x": 480,
+        "y": 340,
         "wires": [
             [
                 "b5af744a5369f84b"
@@ -5086,162 +1843,410 @@
         ]
     },
     {
-        "id": "50ced3d3a7a82136",
+        "id": "baddb38e8fb5dd78",
         "type": "function",
         "z": "ba0c76d3615074a6",
         "name": "",
-        "func": "msg.payload = \"bathroom\"\nmsg.topic = \"roomName\"\nreturn msg",
+        "func": "msg.payload = \"room-5\"\nmsg.topic = \"roomName\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
+        "x": 480,
+        "y": 500,
+        "wires": [
+            [
+                "b5af744a5369f84b"
+            ]
+        ]
+    },
+    {
+        "id": "2eec5438b15376a4",
+        "type": "http request",
+        "z": "ba0c76d3615074a6",
+        "name": "room-5-battery",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/home/sensors/room-5/battery",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
         "x": 280,
+        "y": 660,
+        "wires": [
+            [
+                "2f1542f0b13ca509",
+                "ba4e52d35490c8a0",
+                "3686f9f73166d02f"
+            ]
+        ]
+    },
+    {
+        "id": "2f1542f0b13ca509",
+        "type": "function",
+        "z": "ba0c76d3615074a6",
+        "name": "",
+        "func": "msg.payload = msg.payload.level\nmsg.topic = \"batteryLevel\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 580,
+        "wires": [
+            [
+                "b5af744a5369f84b"
+            ]
+        ]
+    },
+    {
+        "id": "ba4e52d35490c8a0",
+        "type": "function",
+        "z": "ba0c76d3615074a6",
+        "name": "",
+        "func": "msg.payload = msg.payload.output\nmsg.topic = \"batteryOutput\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 660,
+        "wires": [
+            [
+                "b5af744a5369f84b"
+            ]
+        ]
+    },
+    {
+        "id": "3686f9f73166d02f",
+        "type": "function",
+        "z": "ba0c76d3615074a6",
+        "name": "",
+        "func": "msg.payload = msg.payload.input\nmsg.topic = \"batteryInput\"\nmsg.complete = \"YES\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 740,
+        "wires": [
+            [
+                "b5af744a5369f84b"
+            ]
+        ]
+    },
+    {
+        "id": "2c3dffba55ce9cbc",
+        "type": "function",
+        "z": "ba0c76d3615074a6",
+        "name": "",
+        "func": "msg.payload = 100\nmsg.topic = \"batteryCapacity\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 260,
+        "wires": [
+            [
+                "b5af744a5369f84b"
+            ]
+        ]
+    },
+    {
+        "id": "f8af56ade312c76b",
+        "type": "function",
+        "z": "ba0c76d3615074a6",
+        "name": "",
+        "func": "msg.payload = 68\nmsg.topic = \"sockets\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 180,
+        "wires": [
+            [
+                "b5af744a5369f84b"
+            ]
+        ]
+    },
+    {
+        "id": "6dccc5a58ca3c86f",
+        "type": "function",
+        "z": "ba0c76d3615074a6",
+        "name": "",
+        "func": "msg.payload = 1\nmsg.topic = \"status\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 420,
+        "wires": [
+            [
+                "b5af744a5369f84b"
+            ]
+        ]
+    },
+    {
+        "id": "655dc8c8e6c0e5a6",
+        "type": "inject",
+        "z": "2e6ec7d666e24030",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 300,
+        "wires": [
+            [
+                "9927df5fe905e206",
+                "f89a3bfc18583446",
+                "13fc95cdfc5feaee",
+                "03ef978dae9b36cb",
+                "f30a872a7826518a"
+            ]
+        ]
+    },
+    {
+        "id": "8e1ef03368eb65f5",
+        "type": "json",
+        "z": "2e6ec7d666e24030",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 950,
+        "y": 300,
+        "wires": [
+            [
+                "534cd0685932a243"
+            ]
+        ]
+    },
+    {
+        "id": "0d833b9751bca0d4",
+        "type": "join",
+        "z": "2e6ec7d666e24030",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 810,
+        "y": 300,
+        "wires": [
+            [
+                "8e1ef03368eb65f5"
+            ]
+        ]
+    },
+    {
+        "id": "534cd0685932a243",
+        "type": "mqtt out",
+        "z": "2e6ec7d666e24030",
+        "name": "",
+        "topic": "home/sensors/room5",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 1180,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "f89a3bfc18583446",
+        "type": "function",
+        "z": "2e6ec7d666e24030",
+        "name": "",
+        "func": "msg.payload = 0\nmsg.topic = \"roomId\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 140,
+        "wires": [
+            [
+                "0d833b9751bca0d4"
+            ]
+        ]
+    },
+    {
+        "id": "03ef978dae9b36cb",
+        "type": "function",
+        "z": "2e6ec7d666e24030",
+        "name": "",
+        "func": "msg.payload = \"room-0\"\nmsg.topic = \"roomName\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 300,
+        "wires": [
+            [
+                "0d833b9751bca0d4"
+            ]
+        ]
+    },
+    {
+        "id": "f30a872a7826518a",
+        "type": "http request",
+        "z": "2e6ec7d666e24030",
+        "name": "room-0-battery",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/home/sensors/grid/battery",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 380,
         "y": 460,
         "wires": [
             [
-                "b5af744a5369f84b"
+                "295f07a2dc8ec683",
+                "10292522de3c2f57",
+                "db95a423b100d26c"
             ]
         ]
     },
     {
-        "id": "7fc9d05b40366b16",
-        "type": "join",
-        "z": "ba0c76d3615074a6",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 690,
-        "y": 260,
-        "wires": [
-            [
-                "bceddcbc1e0c03e6"
-            ]
-        ]
-    },
-    {
-        "id": "bceddcbc1e0c03e6",
+        "id": "295f07a2dc8ec683",
         "type": "function",
-        "z": "ba0c76d3615074a6",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nreturn msg",
+        "z": "2e6ec7d666e24030",
+        "name": "",
+        "func": "msg.payload = msg.payload.level\nmsg.topic = \"batteryLevel\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
-        "y": 260,
+        "x": 580,
+        "y": 380,
         "wires": [
             [
-                "b5af744a5369f84b"
+                "0d833b9751bca0d4"
             ]
         ]
     },
     {
-        "id": "d84ab10278a24c0d",
-        "type": "join",
-        "z": "ba0c76d3615074a6",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 690,
-        "y": 600,
-        "wires": [
-            [
-                "43b5072e7e11c253"
-            ]
-        ]
-    },
-    {
-        "id": "43b5072e7e11c253",
+        "id": "10292522de3c2f57",
         "type": "function",
-        "z": "ba0c76d3615074a6",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nreturn msg",
+        "z": "2e6ec7d666e24030",
+        "name": "",
+        "func": "msg.payload = msg.payload.output\nmsg.topic = \"batteryOutput\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
-        "y": 600,
+        "x": 580,
+        "y": 460,
         "wires": [
             [
-                "b5af744a5369f84b"
+                "0d833b9751bca0d4"
             ]
         ]
     },
     {
-        "id": "e32cf5604ac2dc4e",
-        "type": "join",
-        "z": "ba0c76d3615074a6",
-        "name": "",
-        "mode": "custom",
-        "build": "array",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 690,
-        "y": 900,
-        "wires": [
-            [
-                "c1abd2e241ab4921"
-            ]
-        ]
-    },
-    {
-        "id": "c1abd2e241ab4921",
+        "id": "db95a423b100d26c",
         "type": "function",
-        "z": "ba0c76d3615074a6",
-        "name": "AVG",
-        "func": "var total = 0;\nvar length = msg.payload.length;\nfor(var i = 0; i < length ; i++) {\n    total += msg.payload[i];\n}\nmsg.payload = total / length;\nmsg.complete = \"YES\"\nreturn msg",
+        "z": "2e6ec7d666e24030",
+        "name": "",
+        "func": "msg.payload = msg.payload.input\nmsg.topic = \"batteryInput\"\nmsg.complete = \"YES\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
-        "y": 900,
+        "x": 580,
+        "y": 540,
         "wires": [
             [
-                "b5af744a5369f84b"
+                "0d833b9751bca0d4"
+            ]
+        ]
+    },
+    {
+        "id": "9927df5fe905e206",
+        "type": "function",
+        "z": "2e6ec7d666e24030",
+        "name": "",
+        "func": "msg.payload = 100\nmsg.topic = \"batteryCapacity\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 60,
+        "wires": [
+            [
+                "0d833b9751bca0d4"
+            ]
+        ]
+    },
+    {
+        "id": "13fc95cdfc5feaee",
+        "type": "function",
+        "z": "2e6ec7d666e24030",
+        "name": "",
+        "func": "msg.payload = 1\nmsg.topic = \"status\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 220,
+        "wires": [
+            [
+                "0d833b9751bca0d4"
             ]
         ]
     }

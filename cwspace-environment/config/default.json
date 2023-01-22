@@ -6,10 +6,11 @@
             "type": "grid",  
             "status" : 1,
             "battery":{
-                "capacity" : null,
+                "grid": 1,
+                "capacity" : 500,
                 "level": null,
-                "input": 3000,
-                "output": 3000,
+                "input": 5000,
+                "output": 5000,
                 "frequency": 5000
             }
         },
@@ -23,6 +24,7 @@
                 "frequency": 5000
             },
             "battery":{
+                "grid": 0,
                 "capacity" : 100,
                 "level": 50,
                 "input": 50,
@@ -40,6 +42,7 @@
                 "frequency": 5000
             },
             "battery":{
+                "grid": 0,
                 "capacity" : 100,
                 "level": 45,
                 "input": 50,
@@ -56,6 +59,7 @@
                 "frequency": 5000
             },
             "battery":{
+                "grid": 0,
                 "capacity" : 100,
                 "level": 80,
                 "input": 50,
@@ -72,6 +76,7 @@
                 "frequency": 5000
             },
             "battery":{
+                "grid": 0,
                 "capacity" : 100,
                 "level": 95,
                 "input": 10,
@@ -85,14 +90,15 @@
             "status" : 1,
             "id": 5,
             "energy": {
-                "sockets": 4,
+                "sockets": 68,
                 "frequency": 5000
             },
             "battery":{
+                "grid": 0,
                 "capacity" : 100,
                 "level": 95,
-                "input": 10,
-                "output": 5,
+                "input": 78,
+                "output": 76,
                 "frequency": 5000
             }
         }

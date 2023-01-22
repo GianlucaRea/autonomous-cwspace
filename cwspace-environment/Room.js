@@ -22,12 +22,12 @@ module.exports = class Room {
         // Energy 
         this.router.get('/home/sensors/' + this.settings.name + '/energy', this.energy.get());
         this.router.get('/home/sensors/' + this.settings.name + '/energy/:socket', this.energy.getElectricSocketStatus());
-        this.router.post('/home/sensors/' + this.settings.name + '/energy/:socket', this.energy.setElectricSocket());
         this.router.get('/home/sensors/' + this.settings.name + '/battery', this.battery.get());         
     }   
 
     attachGridRoutes() {
-        this.router.get('/home/sensors/' + this.settings.name + '/battey', this.battery.get());
+        console.log("S");
+        this.router.get('/home/sensors/' + this.settings.name + '/battery', this.battery.get());
     }
 
 

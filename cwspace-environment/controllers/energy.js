@@ -2,7 +2,7 @@ module.exports = class Energy {
 
     constructor(settings) {
         this.frequency = settings.frequency;
-        this.max = 500
+        this.max = 100
         this.min = 0
         this.timestamp = Date.now();
         this.energy = 0;
@@ -11,7 +11,8 @@ module.exports = class Energy {
         this.numberOfSockets = settings.sockets;
 
         for(let i = 1; i <= this.numberOfSockets; i++) {
-            if(i % 2 == 0){
+            let x = generateRandomNumber(0,10);
+            if(x <= 3){
                 this.sockets[i] = 0;
                 this.socketsInUse[i] = 0;
             } else {
@@ -26,15 +27,6 @@ module.exports = class Energy {
 
     startSimulation() {
         setInterval(this.computeEnergy(), this.frequency);
-    }
-
-    get(){
-        return (req, res) => {
-            res.status(200).json({
-                timeOfMeasurement: this.timestamp,
-                data: this.energy
-            });
-        }
     }
 
     getElectricSocketStatus() {
@@ -53,18 +45,12 @@ module.exports = class Energy {
         }
     }
 
-    // Sets the heating either to true or false, returns a 204 (succesful request with empty response)
-    setElectricSocket() {
+    get(){
         return (req, res) => {
-            if(req.body.socket > this.numberOfSockets || req.body.socket <= 0) {
-                res.status(400).send(JSON.stringify({
-                    message: "This socket does not exists"
-                }));
-                return;
-            }
-            this.socketsInUse[req.body.socket] = req.body.socketON // 0 or 1
-            this.sockets[req.body.socket] = this.sockets[req.body.socket] * this.socketsInUse[req.body.socket]
-            res.status(204).send();
+            res.status(200).json({
+                timeOfMeasurement: this.timestamp,
+                data: this.energy
+            });
         }
     }
 
@@ -81,8 +67,13 @@ module.exports = class Energy {
                 } 
                 this.energy += this.sockets[i];
             }
+            this.energy = Math.trunc(this.energy);
             this.timestamp = Date.now();
 
         }
     }
 }
+
+function generateRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+};
