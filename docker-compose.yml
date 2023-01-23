@@ -71,7 +71,21 @@ services:
       - INFLUXDB_ADMIN_PASSWORD=secretpassword
       - INFLUXDB_USER=telegraf
       - INFLUXDB_USER_PASSWORD=secretpassword
-  
+
+  cwspace-analyzer:
+    image: cwspace-analyzer
+    restart: always
+    container_name: Analyzer
+    build:
+      context: ./cwspace-analyzer/
+      dockerfile: Dockerfile
+    volumes:
+      - /data/cwspace-analyzer
+    depends_on:
+      - mosquitto
+      - influxdb
+    networks:
+      - iot
 
   # Managed Enviroment Simulator Components
   web:
