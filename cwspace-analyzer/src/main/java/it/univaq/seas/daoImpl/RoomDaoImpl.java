@@ -76,8 +76,7 @@ public class RoomDaoImpl implements RoomDao {
     }
 
     @Override
-    public List<String> checkEnergyConsuptionAdaptation() {
-        List<String> topics = new ArrayList<>();
+    public int checkEnergyConsuptionAdaptation() {
         InfluxDB influxDBConnection = InfluxDBFactory.connect(serverUrl,username,password);
         String command = "SELECT roomId, last(energyDemand), batteryOutput FROM room WHERE status = 1 GROUP BY topic";
         QueryResult queryResult = influxDBConnection.query(new Query(command,"telegraf"));
@@ -87,22 +86,33 @@ public class RoomDaoImpl implements RoomDao {
             for(Result result : series){
                 if(result.getSeries() != null && !result.getSeries().isEmpty()){
                     Integer mainOutput = null;
-                    Map<Integer,Integer> energyDemands;
                     List<QueryResult.Series> res = result.getSeries();
-                    List<Object> objToRm = null;
                     boolean found = false;
 
                     for (Series singleSerie : res){
                         List<Object> tuple = singleSerie.getValues().get(0);
-
-
+                        if(Utility.intcast(tuple.get(1)) == 0){
+                            found = true;
+                            mainOutput = Utility.intcast(tuple.get(3));
+                            break;
+                        }
                     }
+
+                    if(found){
+                        Integer finalMainOutput = mainOutput;
+                        for(Series singleSerie: res){
+                            List<Object> tuple = singleSerie.getValues().get(0);
+                            Integer roomId = Utility.intcast(tuple.get(1));
+                            Integer energyDemand = Utility.intcast(tuple.get(2));
+                            if(roomId != 0 && energyDemand >= (finalMainOutput / (res.size() -1))){
+                                return finalMainOutput;
+                            }
+                        }
+                    } else return 0;
                 }
             }
         }
-
-        return topics;
-
+        return 0;
     }
 
     @Override

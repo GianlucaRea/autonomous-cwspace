@@ -11,6 +11,6 @@ public interface RoomDao {
 
     public List<String> getRoomsWithBatteryLessThan(int battery_level);
     public List<String> getRoomsWithBatteryGreaterThan(int battery_level);
-    public List<String> checkEnergyConsuptionAdaptation();
+    public int checkEnergyConsuptionAdaptation();
     public List<RoomData> getRoomData();
 }
