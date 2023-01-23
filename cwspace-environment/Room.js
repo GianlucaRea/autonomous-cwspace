@@ -9,7 +9,7 @@ module.exports = class Room {
         this.router = new express.Router();
         this.battery = new Battery(settings.battery);
 
-        if(settings.type === "room"){
+        if(settings.id > 0){
             this.energy = new Energy(settings.energy);
             this.attachRoomRoutes();
 

@@ -1,9 +1,9 @@
 {
     "rooms": [
         {
-            "name": "grid",
+            "name": "room",
             "id":0,
-            "type": "grid",  
+            "type": "room",  
             "status" : 1,
             "battery":{
                 "capacity" : null,

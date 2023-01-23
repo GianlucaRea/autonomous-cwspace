@@ -12,6 +12,7 @@ import org.influxdb.dto.QueryResult.Series;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author gianlucarea
@@ -30,17 +31,78 @@ public class RoomDaoImpl implements RoomDao {
 
     @Override
     public List<String> getRoomsWithBatteryLessThan(int battery_level) {
-        return null;
+        List<String> topics = new ArrayList<>();
+        InfluxDB influxDBConnection = InfluxDBFactory.connect(serverUrl,username,password);
+        String command = "SELECT last(batteryLevel) FROM room WHERE roomId != 0 AND batteryLevel <=" + battery_level + " AND status= 1 GROUP BY  topic";
+        QueryResult queryResult = influxDBConnection.query(new Query(command,"telegraf"));
+
+        if(!queryResult.getResults().isEmpty()){
+            List<Result> series = queryResult.getResults();
+            for(Result result : series){
+                if(result.getSeries() != null && !result.getSeries().isEmpty()){
+                    for (Series singleSerie : result.getSeries()){
+                        if(singleSerie.getTags().containsKey("topic")){
+                            topics.add(singleSerie.getTags().get("topic"));
+                        }
+                    }
+                }
+            }
+        }
+        Runtime.getRuntime().addShutdownHook(new Thread(influxDBConnection::close));
+        return topics;
     }
 
     @Override
     public List<String> getRoomsWithBatteryGreaterThan(int battery_level) {
-        return null;
+        List<String> topics = new ArrayList<>();
+        InfluxDB influxDBConnection = InfluxDBFactory.connect(serverUrl,username,password);
+        String command = "SELECT last(batteryLevel) FROM room WHERE roomId != 0 AND batteryLevel >=" + battery_level + " AND status= 1 GROUP BY  topic";
+        QueryResult queryResult = influxDBConnection.query(new Query(command,"telegraf"));
+
+        if(!queryResult.getResults().isEmpty()){
+            List<Result> series = queryResult.getResults();
+            for(Result result : series){
+                if(result.getSeries() != null && !result.getSeries().isEmpty()){
+                    for (Series singleSerie : result.getSeries()){
+                        if(singleSerie.getTags().containsKey("topic")){
+                            topics.add(singleSerie.getTags().get("topic"));
+                        }
+                    }
+                }
+            }
+        }
+        Runtime.getRuntime().addShutdownHook(new Thread(influxDBConnection::close));
+        return topics;
     }
 
     @Override
     public List<String> checkEnergyConsuptionAdaptation() {
-        return null;
+        List<String> topics = new ArrayList<>();
+        InfluxDB influxDBConnection = InfluxDBFactory.connect(serverUrl,username,password);
+        String command = "SELECT roomId, last(energyDemand), batteryOutput FROM room WHERE status = 1 GROUP BY topic";
+        QueryResult queryResult = influxDBConnection.query(new Query(command,"telegraf"));
+
+        if(!queryResult.getResults().isEmpty()){
+            List<Result> series = queryResult.getResults();
+            for(Result result : series){
+                if(result.getSeries() != null && !result.getSeries().isEmpty()){
+                    Integer mainOutput = null;
+                    Map<Integer,Integer> energyDemands;
+                    List<QueryResult.Series> res = result.getSeries();
+                    List<Object> objToRm = null;
+                    boolean found = false;
+
+                    for (Series singleSerie : res){
+                        List<Object> tuple = singleSerie.getValues().get(0);
+
+
+                    }
+                }
+            }
+        }
+
+        return topics;
+
     }
 
     @Override

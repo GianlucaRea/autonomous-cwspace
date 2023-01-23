@@ -31,7 +31,8 @@ module.exports = class Battery {
                 timeOfMeasurement: this.timestamp,
                 level: null,
                 output: 5000,
-                input: 5000
+                input: 5000,
+                energyDemand: 0
             });
         }
     }

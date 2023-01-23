@@ -2139,19 +2139,20 @@
         "method": "GET",
         "ret": "obj",
         "paytoqs": "ignore",
-        "url": "http://web:8000/home/sensors/grid/battery",
+        "url": "http://web:8000/home/sensors/room/battery",
         "tls": "",
         "persist": false,
         "proxy": "",
         "authType": "",
         "senderr": false,
         "x": 380,
-        "y": 460,
+        "y": 500,
         "wires": [
             [
                 "295f07a2dc8ec683",
                 "10292522de3c2f57",
-                "db95a423b100d26c"
+                "db95a423b100d26c",
+                "26fe6df107d59082"
             ]
         ]
     },
@@ -2205,7 +2206,7 @@
         "finalize": "",
         "libs": [],
         "x": 580,
-        "y": 540,
+        "y": 620,
         "wires": [
             [
                 "0d833b9751bca0d4"
@@ -2217,7 +2218,7 @@
         "type": "function",
         "z": "2e6ec7d666e24030",
         "name": "",
-        "func": "msg.payload = 100\nmsg.topic = \"batteryCapacity\"\nreturn msg",
+        "func": "msg.payload = null\nmsg.topic = \"batteryCapacity\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2248,6 +2249,23 @@
             [
                 "0d833b9751bca0d4"
             ]
+        ]
+    },
+    {
+        "id": "26fe6df107d59082",
+        "type": "function",
+        "z": "2e6ec7d666e24030",
+        "name": "",
+        "func": "msg.payload = msg.payload.energyDemand\nmsg.topic = \"energyDemand\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 540,
+        "wires": [
+            []
         ]
     }
 ]
