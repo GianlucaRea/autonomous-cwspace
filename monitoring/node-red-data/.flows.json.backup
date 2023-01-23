@@ -2080,7 +2080,7 @@
         "type": "mqtt out",
         "z": "2e6ec7d666e24030",
         "name": "",
-        "topic": "home/sensors/room5",
+        "topic": "home/sensors/room0",
         "qos": "0",
         "retain": "",
         "respTopic": "",

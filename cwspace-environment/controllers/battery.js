@@ -1,7 +1,6 @@
 module.exports = class Battery {
 
     constructor(settings) {
-        this.grid = settings.id;
         this.capacity = settings.capacity;
         this.level = settings.level;
         this.input = settings.input;
@@ -26,9 +25,19 @@ module.exports = class Battery {
         }
     }
 
+    getGrid() {
+        return (req, res) => {
+            res.status(200).json({
+                timeOfMeasurement: this.timestamp,
+                level: null,
+                output: 5000,
+                input: 5000
+            });
+        }
+    }
+
     computeBattery() {
         return () => {
-            if(this.grid != 1){
             //Battery Level
             if (this.level > 0 && this.level < 100) this.level = this.level - generateRandomNumber(0,3) + generateRandomNumber(0,3);
             if(this.level < 0) this.level = 0;
@@ -41,13 +50,7 @@ module.exports = class Battery {
             if (this.input > 0 && this.input < 100) this.input = this.input - generateRandomNumber(0,3) + generateRandomNumber(0,3);
             if(this.input < 0) this.input = 0;
             if(this.input > 100) this.input = 100;
-            } else {
-                console.log("OEX");
-                this.input = 5000;
-                this.output = 5000;
-                this.capacity = 5000;
-                this.level = 5000;
-            }
+            this.timestamp = Date.now();
         }
     }
 

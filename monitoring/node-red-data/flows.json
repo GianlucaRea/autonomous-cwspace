@@ -2217,7 +2217,7 @@
         "type": "function",
         "z": "2e6ec7d666e24030",
         "name": "",
-        "func": "msg.payload = 100\nmsg.topic = \"batteryCapacity\"\nreturn msg",
+        "func": "msg.payload = null\nmsg.topic = \"batteryCapacity\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",

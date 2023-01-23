@@ -27,7 +27,7 @@ module.exports = class Room {
 
     attachGridRoutes() {
         console.log("S");
-        this.router.get('/home/sensors/' + this.settings.name + '/battery', this.battery.get());
+        this.router.get('/home/sensors/' + this.settings.name + '/battery', this.battery.getGrid());
     }
 
 
