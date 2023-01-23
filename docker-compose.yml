@@ -25,7 +25,7 @@ services:
     networks:
       - iot
     volumes:
-      - "./monitoring/node-red-data:/data"
+      - "./node-red-data:/data"
 
   grafana:
     image: grafana/grafana
@@ -45,7 +45,7 @@ services:
   # MONITOR
   telegraf:
     image: telegraf
-    container_name: MAPE_MONITOR
+    container_name: Monitor
     restart: always
     volumes:
       - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
@@ -58,7 +58,7 @@ services:
   # KNOWLEDGE
   influxdb:
     image: influxdb:1.8
-    container_name: KNOWLEDGE
+    container_name: Knowledge
     restart: always
     ports:
       - "8086:8086"
