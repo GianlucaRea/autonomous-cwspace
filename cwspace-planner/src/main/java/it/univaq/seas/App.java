@@ -1,4 +1,4 @@
-package it.univaq.sease;
+package it.univaq.seas;
 
 public class App {
     public static void main(String[] args) {
