@@ -1,0 +1,13 @@
+/Users/gianlucarea/Desktop/Projects/autonomous-cwspace/cwspace-analyzer/src/main/java/it/univaq/seas/service/RoomService.java
+/Users/gianlucarea/Desktop/Projects/autonomous-cwspace/cwspace-analyzer/src/main/java/it/univaq/seas/daoImpl/InfluxdbConnection.java
+/Users/gianlucarea/Desktop/Projects/autonomous-cwspace/cwspace-analyzer/src/main/java/it/univaq/seas/model/RoomData.java
+/Users/gianlucarea/Desktop/Projects/autonomous-cwspace/cwspace-analyzer/src/main/java/it/univaq/seas/job/Scheduler.java
+/Users/gianlucarea/Desktop/Projects/autonomous-cwspace/cwspace-analyzer/src/main/java/it/univaq/seas/job/EnergyConsuptionAdaptation.java
+/Users/gianlucarea/Desktop/Projects/autonomous-cwspace/cwspace-analyzer/src/main/java/it/univaq/seas/App.java
+/Users/gianlucarea/Desktop/Projects/autonomous-cwspace/cwspace-analyzer/src/main/java/it/univaq/seas/utilities/HttpConnection.java
+/Users/gianlucarea/Desktop/Projects/autonomous-cwspace/cwspace-analyzer/src/main/java/it/univaq/seas/dao/RoomDao.java
+/Users/gianlucarea/Desktop/Projects/autonomous-cwspace/cwspace-analyzer/src/main/java/it/univaq/seas/model/SymptomMessage.java
+/Users/gianlucarea/Desktop/Projects/autonomous-cwspace/cwspace-analyzer/src/main/java/it/univaq/seas/daoImpl/RoomDaoImpl.java
+/Users/gianlucarea/Desktop/Projects/autonomous-cwspace/cwspace-analyzer/src/main/java/it/univaq/seas/model/SymptomId.java
+/Users/gianlucarea/Desktop/Projects/autonomous-cwspace/cwspace-analyzer/src/main/java/it/univaq/seas/serviceImpl/RoomServiceImpl.java
+/Users/gianlucarea/Desktop/Projects/autonomous-cwspace/cwspace-analyzer/src/main/java/it/univaq/seas/utilities/Utility.java

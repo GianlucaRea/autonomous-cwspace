@@ -16,7 +16,7 @@ import org.apache.hc.core5.http.HttpResponse;
  * @author gianlucarea
  */
 public class HttpConnection {
-    public static final String URLDOCKER = "http://water-system-planner:8081/message"; //TODO change this
+    public static final String URLDOCKER = "http://cwspace-planner:8081/message"; //TODO change this
     public static final String URLLOCAL = "http://localhost:8081/message";
 
     public static void invoke(String message) throws ExecutionException, InterruptedException {

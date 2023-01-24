@@ -20,8 +20,8 @@ import java.util.concurrent.ExecutionException;
 public class RoomServiceImpl implements RoomService {
 
     private RoomDao roomDao = new RoomDaoImpl();
-    private String DOCKERURL = ""; //TODO change this
-    private String LOCALURL = "http://localhost;8081/";
+    private String DOCKERURL = "http://cwspace-planner:8081/"; 
+    private String LOCALURL = "http://localhost:8081/";
     private Boolean DOCKERIZED = Utility.dockerized;
 
     @Override
@@ -88,8 +88,10 @@ public class RoomServiceImpl implements RoomService {
             symptomMessage.setAlert(0);
             symptomMessage.setSymptomId(SymptomId.STATUS_WARNING);
             symptomMessage.setRooms(topics);
+            System.out.println("url: " +URL);
             System.out.println("Status adaptation for" + symptomMessage.getRooms().toString());
-            HttpConnection.invoke(Utility.convertMessageToJSONString(symptomMessage),URL);
+            String message = Utility.convertMessageToJSONString(symptomMessage);
+            HttpConnection.invoke(message,URL);
         }
     }
 //EOF

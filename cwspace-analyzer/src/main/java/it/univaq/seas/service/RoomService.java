@@ -1,9 +1,7 @@
 package it.univaq.seas.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import it.univaq.seas.model.RoomData;
 
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 /**
