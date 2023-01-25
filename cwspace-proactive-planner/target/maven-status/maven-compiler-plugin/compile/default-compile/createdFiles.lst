@@ -1,0 +1,9 @@
+it/univaq/seas/controller/EnergyService.class
+it/univaq/seas/model/RoomData.class
+it/univaq/seas/utility/Utility.class
+it/univaq/seas/RestController.class
+it/univaq/seas/daoImpl/RoomDaoImpl.class
+it/univaq/seas/model/RoomDataRegression.class
+it/univaq/seas/App.class
+it/univaq/seas/model/AdaptationMessage.class
+it/univaq/seas/dao/RoomDao.class

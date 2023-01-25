@@ -102,6 +102,22 @@ services:
       - influxdb
     networks:
       - iot
+
+#  cwspace-proactive-planner:
+#    image: cwspace-proactive-planner
+#    container_name: Planner_Proactive
+#    build:
+#      context: ./cwspace-proactive-planner/
+#      dockerfile: Dockerfile
+#    volumes:
+#      - /data/cwspace-proactive-planner
+#    ports:
+#      - "8081:8081"
+#    depends_on:
+#      - mosquitto
+#      - influxdb
+#    networks:
+#      - iot
     
   cwspace-executor:
     image: cwspace-executor
