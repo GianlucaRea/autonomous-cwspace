@@ -46,11 +46,9 @@ module.exports = class Battery {
             //Battery Output
             if (this.output > 0 && this.output < 100) this.output = this.output - generateRandomNumber(0,3) + generateRandomNumber(0,3);
             if(this.output < 0) this.output = 0;
-            if(this.output > 100) this.output = 100;
             //Battery Input
             if (this.input > 0 && this.input < 100) this.input = this.input - generateRandomNumber(0,3) + generateRandomNumber(0,3);
             if(this.input < 0) this.input = 0;
-            if(this.input > 100) this.input = 100;
             this.timestamp = Date.now();
         }
     }
