@@ -102,6 +102,20 @@ services:
       - influxdb
     networks:
       - iot
+    
+  cwspace-executor:
+    image: cwspace-executor
+    container_name: Executor
+    build:
+      context: ./cwspace-executor/
+      dockerfile: Dockerfile
+    volumes:
+      - /data/cwspace-executor
+    depends_on:
+      - mosquitto
+      - influxdb
+    networks:
+      - iot
 
   # Managed Enviroment Simulator Components
   web:
