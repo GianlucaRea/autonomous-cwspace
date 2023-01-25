@@ -67,7 +67,7 @@ public class EnergyService {
         return results;
     }
 
-    public static List<RoomData> energyConsumptionPolicy(List<RoomDataRegression> rooms, int mainEnergy) {
+    public static List<RoomData> energyConsumptionPolicy(List<RoomData> rooms, int mainEnergy) {
         Map<RoomData, Integer> optimalOutput = new HashMap<>();
         int currentOutput = 0;
         List<RoomData> results = new ArrayList<>();
