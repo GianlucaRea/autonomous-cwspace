@@ -8,7 +8,6 @@ module.exports = class Room {
         this.settings = settings;
         this.router = new express.Router();
         this.battery = new Battery(settings.battery);
-
         if(settings.id > 0){
             this.energy = new Energy(settings.energy);
             this.attachRoomRoutes();
@@ -23,12 +22,20 @@ module.exports = class Room {
         this.router.get('/home/sensors/' + this.settings.name + '/energy', this.energy.get());
         this.router.get('/home/sensors/' + this.settings.name + '/energy/:socket', this.energy.getElectricSocketStatus());
         this.router.get('/home/sensors/' + this.settings.name + '/battery', this.battery.get());         
+        this.router.post('/home/sensors/' + this.settings.name + '/battery/setBatteryOutput', this.battery.setBatteryOutput());
+        this.router.post('/home/sensors/' + this.settings.name + '/status', this.battery.setStatus());
+        if(this.battery.status === 0){
+            this.energy.setClosed();
+        }
+
     }   
 
     attachGridRoutes() {
-        console.log("S");
         this.router.get('/home/sensors/' + this.settings.name + '/battery', this.battery.getGrid());
+
     }
+
+
 
 
 

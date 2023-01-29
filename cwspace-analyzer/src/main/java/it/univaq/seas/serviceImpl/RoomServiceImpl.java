@@ -50,15 +50,17 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public void energyConsuptionAdaptation() throws JsonProcessingException, ExecutionException, InterruptedException {
-        String endpoint = "energyConsuptionAdaptation";
+        String endpoint = "energyConsumptionAdaptation";
         String URL = (DOCKERIZED) ? (DOCKERURL + endpoint) : (LOCALURL + endpoint);
         int value = roomDao.checkEnergyConsuptionAdaptation();
         if (value != 0) {
+            System.out.println(" EnergyConsuptionAdaptation ");
             SymptomMessage symptomMessage = new SymptomMessage();
             symptomMessage.setRooms(null);
             symptomMessage.setSymptomId(SymptomId.ENERGY_CONSUMPTION_ADAPTATION_REQUESTED);
             symptomMessage.setAlert(value);
-            HttpConnection.invoke(Utility.convertMessageToJSONString(symptomMessage));
+            HttpConnection.invoke(Utility.convertMessageToJSONString(symptomMessage),URL);
+
         }
     }
 
@@ -70,7 +72,7 @@ public class RoomServiceImpl implements RoomService {
         List<RoomData> roomsWithStatusChange = new ArrayList<>();
 
         for (RoomData room : rooms){
-            if ((room.getEnergyDemand() >= (room.getSockets() * 30)) && room.isStatus()){
+            if ((room.getEnergyDemand() >= (room.getSockets() * 50)) && room.isStatus()){
                 System.out.println("Status change 1 " + room.getTopic() + " " + room.getEnergyDemand() + " " + room.getSockets());
                 roomsWithStatusChange.add(room);
             } else if (room.getBatteryLevel() == 0 && room.isStatus()) {

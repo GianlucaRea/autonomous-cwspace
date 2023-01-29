@@ -3,6 +3,7 @@ package it.univaq.seas;
 import it.univaq.seas.controller.EnergyService;
 import it.univaq.seas.daoImpl.RoomDaoImpl;
 import it.univaq.seas.model.AdaptationMessage;
+import it.univaq.seas.model.Message;
 import it.univaq.seas.model.RoomData;
 import it.univaq.seas.model.RoomDataRegression;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,21 +30,22 @@ public class RestController {
         return body;
     }
 
-    @PostMapping("/energyConsuptionAdaptation")
+    @PostMapping("/energyConsumptionAdaptation")
     public String consumptionPredAdaptation(@RequestBody AdaptationMessage message) {
 
         List<RoomDataRegression> rooms = new RoomDaoImpl().getRoomDataRegression();
         int initEnergy = message.getAlert();
 
         List<RoomData> results = EnergyService.energyConsumptionPredPolicy(rooms,initEnergy);
-        List<RoomData> writeList = new ArrayList<>();
+        List<Message> writeList = new ArrayList<>();
 
         for(RoomData room : results){
-            RoomData temporaryRoom = new RoomData();
-            temporaryRoom.setRoomId(room.getRoomId());
-            temporaryRoom.setBatteryOutput(room.getBatteryOutput());
-            temporaryRoom.setTopic(room.getTopic());
-            writeList.add(temporaryRoom);
+            Message  temporaryMessage = new Message();
+            temporaryMessage.setRoomId(room.getRoomId());
+            temporaryMessage.setBatteryOutput(room.getBatteryOutput());
+            temporaryMessage.setTopic(room.getTopic());
+            temporaryMessage.setMessage("EnergyAdaptation");
+            writeList.add(temporaryMessage);
         }
         String jsonMessage = convertMessageToJSONString(writeList);
         System.out.println("Energy Consumption Policy : " + jsonMessage);
@@ -55,15 +57,20 @@ public class RestController {
     public String statusAdaptation(@RequestBody AdaptationMessage message) {
         List<RoomData> rooms = new RoomDaoImpl().getRoomData();
         List<RoomData> results = EnergyService.energyStatusPolicy(rooms,(List<String>) message.getRooms());
-        List<RoomData> writeList = new ArrayList<>();
+        List<Message> writeList = new ArrayList<>();
 
         for (RoomData room: results){
-            RoomData temporaryRoom = new RoomData();
-            temporaryRoom.setRoomId(room.getRoomId());
-            temporaryRoom.setStatus(room.isStatus());
-            temporaryRoom.setBatteryInput(room.getBatteryInput());
-            temporaryRoom.setTopic(room.getTopic());
-            writeList.add(temporaryRoom);
+            Message temporaryMessage = new Message();
+            temporaryMessage.setRoomId(room.getRoomId());
+            temporaryMessage.setBatteryInput(room.getBatteryInput());
+            temporaryMessage.setTopic(room.getTopic());
+            temporaryMessage.setMessage("StatusAdaptation");
+            if(room.isStatus()){
+                temporaryMessage.setStatus(1);
+            } else {
+                temporaryMessage.setStatus(0);
+            }
+            writeList.add(temporaryMessage);
         }
         String jsonMessage = convertMessageToJSONString(writeList);
         System.out.println("Stats Consumption Policy : " + jsonMessage);

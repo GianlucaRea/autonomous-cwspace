@@ -18,7 +18,7 @@ public class EnergyService {
         List<RoomData> results = new ArrayList<>();
 
         for (RoomData room : rooms) {
-            if (room.getRoomId() != 0 && room.isStatus() == true) {
+            if (room.getRoomId() != 0 && room.isStatus()) {
                 optimalOutput.put(room, room.getEnergyDemand() + (room.getEnergyDemand() / 100 * 20));
                 currentOutput += room.getEnergyDemand() + (room.getEnergyDemand() / 100 * 20);
             }
@@ -26,7 +26,7 @@ public class EnergyService {
 
         while (currentOutput >= mainEnergy) {
             for (RoomData room : rooms) {
-                if (room.getRoomId() != 0 && room.isStatus() == true) {
+                if (room.getRoomId() != 0 && room.isStatus()) {
                     int requireOutput = optimalOutput.get(room);
                     int rmValue = 10;
                     if (requireOutput > 10) {
@@ -42,16 +42,18 @@ public class EnergyService {
         }
 
         for (RoomData room: rooms) {
-            room.setEnergyDemand(optimalOutput.get(room));
+            if (room.getRoomId() != 0 && room.isStatus()) {
+                room.setEnergyDemand(optimalOutput.get(room));
+            }
         }
 
         for (RoomData roomData : optimalOutput.keySet()) {
             RoomData temporaryRoom =(RoomData) cloneObject(roomData);
             int roomID = roomData.getRoomId();
             temporaryRoom.setRoomName("room"+roomID);
-            temporaryRoom.setBatteryOutput(roomData.getBatteryOutput());
+            temporaryRoom.setBatteryOutput(optimalOutput.get(roomData));
             results.add(temporaryRoom);
-            System.out.println("OUTPUT TO SET " + roomData.getBatteryOutput());
+            System.out.println("OUTPUT TO SET " + temporaryRoom.getBatteryOutput());
         }
         return results;
     }

@@ -10,11 +10,12 @@ import org.json.JSONObject;
 public class Executor implements MqttCallback {
     private MqttClient plannerClient = null , systemClient = null;
     private static Executor ExecutorInstance = null;
-    private boolean stop , dockerized;
+    private boolean  dockerized;
     private String url;
 
     @Override
     public void connectionLost(Throwable throwable) {
+            throwable.printStackTrace();
 
     }
 
@@ -26,7 +27,7 @@ public class Executor implements MqttCallback {
 
     @Override
     public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
-
+        System.out.println("Delivery Complete");
     }
 
     public static Executor getInstance(Boolean dockerize){
@@ -44,7 +45,6 @@ public class Executor implements MqttCallback {
     private Executor(Boolean dockerize) throws MqttException {
         // Set url
         if (dockerize) { this.url = "tcp://mosquitto:1883"; } else { this.url = "tpc://localhost:1883"; }
-        stop = false;
 
         this.systemClient = new MqttClient(this.url,"Executor_SystemClient");
         this.plannerClient = new MqttClient(this.url, "Executor_PlannerClient");
@@ -69,32 +69,42 @@ public class Executor implements MqttCallback {
     }
 
     private void publishParameterValues(JSONObject jsonObj, String parameter, String value) {
-
         Object param = jsonObj.get(parameter);
         if(param.toString().equals("null")) return;
         if (param != null) {
             ExecutionData executionData = new ExecutionData();
             executionData.setParameter(parameter);
-            executionData.setValue(jsonObj.getInt(value));
+            if(jsonObj.getInt(value) <= 0){
+                executionData.setValue(0);
+            }else {
+                executionData.setValue(jsonObj.getInt(value));
+            }
             String objToString = new JSONObject(executionData).toString();
-            publish(jsonObj.getString("topic").replace("sensors", "acting"), objToString);
+            publish(jsonObj.getString("topic").replace("sensors", "actuators"), objToString);
             System.out.println("Execution data published: " + objToString);
         }
     }
 
-    private void execute(String s){
+    private JSONObject execute(String s){
         JSONArray jsonArray = new JSONArray(s);
+
         for(Object obj: jsonArray) {
+
             JSONObject jsonObject = (JSONObject) obj;
-            publishParameterValues(jsonObject, "batteryInput", "batteryInput");
-            publishParameterValues(jsonObject, "batteryOutput", "batteryOutput");
-            publishParameterValues(jsonObject, "status", "status");
+            String flag = (String) jsonObject.get("message");
+            int statusFlag = 1;
+            if (!JSONObject.NULL.equals(jsonObject.get("status"))) {
+                statusFlag = (Integer) jsonObject.get("status");
+            }
+            if(flag.equals("EnergyAdaptation") || statusFlag != 0) {
+                publishParameterValues(jsonObject, "batteryOutput", "batteryOutput");
+            } else {
+                publishParameterValues(jsonObject, "status", "status");
+            }
         }
+        return null;
     }
 
-    public void stop(){
-        this.stop = true;
-    }
 
 
 }

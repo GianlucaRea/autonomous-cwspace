@@ -103,6 +103,7 @@ public class RoomDaoImpl implements RoomDao {
                             List<Object> tuple = singleSerie.getValues().get(0);
                             Integer roomId = Utility.intcast(tuple.get(1));
                             Integer energyDemand = Utility.intcast(tuple.get(2));
+
                             if(roomId != 0 && energyDemand >= (finalMainOutput / (res.size() -1))){
                                 return finalMainOutput;
                             }

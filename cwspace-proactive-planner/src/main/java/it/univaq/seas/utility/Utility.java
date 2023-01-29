@@ -2,6 +2,7 @@ package it.univaq.seas.utility;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import it.univaq.seas.model.Message;
 import it.univaq.seas.model.RoomData;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -17,10 +18,10 @@ public class Utility {
 
     public static boolean dockerized = true;
 
-    public static String convertMessageToJSONString(List<RoomData> rooms){
+    public static String convertMessageToJSONString(List<Message> messages){
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(rooms);
+            return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(messages);
         } catch (JsonProcessingException ex) {
             // Do notting
         }

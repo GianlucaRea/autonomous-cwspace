@@ -13,8 +13,8 @@ public class EnergyConsuptionAdaptation extends TimerTask {
     public void run() {
         RoomService roomService = new RoomServiceImpl();
         try {
-            roomService.setStatus();
             roomService.energyConsuptionAdaptation();
+            roomService.setStatus();
         } catch (JsonProcessingException | ExecutionException | InterruptedException e) {
             e.printStackTrace();
             throw new RuntimeException(e);

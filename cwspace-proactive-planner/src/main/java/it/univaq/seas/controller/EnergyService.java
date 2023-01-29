@@ -20,7 +20,7 @@ public class EnergyService {
         List<RoomData> results = new ArrayList<>();
 
         for (RoomDataRegression room : rooms) {
-            if (room.getRoomId() != 0 && room.isStatus() == true) {
+            if (room.getRoomId() != 0 && room.isStatus()) {
                 List<Integer> temporaryList = new ArrayList<>();
                 for (int i : IntStream.range(0, room.getEnergyDemandHistory().size()).toArray()) temporaryList.add(i);
                 Integer predictedValue = (valuePredictor(temporaryList, room.getEnergyDemandHistory(), room.getEnergyDemandHistory().size())).intValue();
@@ -31,7 +31,7 @@ public class EnergyService {
 
         while (currentOutput >= mainEnergy) {
             for (RoomData room : rooms) {
-                if (room.getRoomId() != 0 && room.isStatus() == true) {
+                if (room.getRoomId() != 0 && room.isStatus()) {
                     int requireOutput = optimalOutput.get(room);
                     int rmValue = 10;
                     if (requireOutput > 10) {
@@ -47,7 +47,9 @@ public class EnergyService {
         }
 
         for (RoomData room: rooms) {
-            room.setEnergyDemand(optimalOutput.get(room));
+            if (room.getRoomId() != 0 && room.isStatus()) {
+                room.setEnergyDemand(optimalOutput.get(room));
+            }
         }
 
         for (RoomData roomData : optimalOutput.keySet()) {
@@ -59,10 +61,10 @@ public class EnergyService {
             temporaryRoom.setStatus(roomData.isStatus());
             temporaryRoom.setRoomName("room"+roomID);
             temporaryRoom.setBatteryInput(roomData.getBatteryInput());
-            temporaryRoom.setBatteryOutput(roomData.getBatteryOutput());
+            temporaryRoom.setBatteryOutput(optimalOutput.get(roomData));
             temporaryRoom.setSockets(roomData.getSockets());
             results.add(temporaryRoom);
-            System.out.println("OUTPUT TO SET " + roomData.getBatteryOutput());
+            System.out.println("OUTPUT TO SET " + temporaryRoom.getBatteryOutput());
         }
         return results;
     }
@@ -74,6 +76,7 @@ public class EnergyService {
                 RoomData local = (RoomData) cloneObject(room);
                 local.setStatus(false);
                 local.setBatteryInput(0);
+
                 results.add(local);
             }
         }

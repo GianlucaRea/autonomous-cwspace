@@ -8,6 +8,7 @@ import java.util.List;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
+import it.univaq.seas.model.Message;
 import it.univaq.seas.model.RoomData;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -18,10 +19,10 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 public class Utility {
     public static boolean dockerized = true;
 
-    public static String convertMessageToJSONString(List<RoomData> rooms){
+    public static String convertMessageToJSONString(List<Message> messages){
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(rooms);
+            return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(messages);
         } catch (JsonProcessingException ex) {
             // Do notting
         }

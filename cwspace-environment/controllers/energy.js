@@ -2,7 +2,7 @@ module.exports = class Energy {
 
     constructor(settings) {
         this.frequency = settings.frequency;
-        this.max = 100
+        this.max = 25
         this.min = 0
         this.timestamp = Date.now();
         this.energy = 0;
@@ -49,29 +49,43 @@ module.exports = class Energy {
         return (req, res) => {
             res.status(200).json({
                 timeOfMeasurement: this.timestamp,
-                data: this.energy
+                data: this.energy,
+                sockets: this.numberOfSockets
             });
         }
     }
 
-    computeEnergy() {
+    setClosed(){
         return () => {
             this.energy = 0;
             for(let i = 1; i <= this.numberOfSockets; i++) {
-                this.sockets[i] = (this.sockets[i] * this.socketsInUse[i]) + (Math.floor(Math.random() * 21) - 10);
-                if(this.sockets[i] >= 1500){
-                    this.sockets[i] = 1500;
-                }
-                if(this.sockets[i] < 0 ){
                     this.sockets[i] = 0;
-                } 
-                this.energy += this.sockets[i];
+                    this.socketsInUse[i] = 0;
             }
-            this.energy = Math.trunc(this.energy);
-            this.timestamp = Date.now();
-
+            this.energy += this.sockets[i];
         }
     }
+    
+    computeEnergy() {
+        return () => {
+
+                let x = generateRandomNumber(0,10);
+                if(x <= 3){
+                    this.energy += 75;
+                    this.energy = Math.trunc(this.energy );
+                }
+                else if (x >= 6){
+                    this.energy -= 50;
+                    this.energy = Math.trunc(this.energy);
+                } else {
+                    this.energy = Math.trunc(this.energy);
+                } 
+            
+                this.timestamp = Date.now();
+                if(this.energy < 0 ) this.energy= 0;
+        }
+    }
+    
 }
 
 function generateRandomNumber(min, max) {

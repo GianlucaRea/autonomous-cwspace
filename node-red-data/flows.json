@@ -2,7 +2,7 @@
     {
         "id": "5765d2042467176e",
         "type": "tab",
-        "label": "Tomato-Cultivation-Actuators",
+        "label": "Acting",
         "disabled": false,
         "info": "",
         "env": []
@@ -82,47 +82,6 @@
         "sessionExpiry": ""
     },
     {
-        "id": "cf21937e15f701cf",
-        "type": "function",
-        "z": "5765d2042467176e",
-        "name": "[HTTP POST SETTING] SetHeating",
-        "func": "console.log(\"Read on topic: \" + msg.payload)\n\nmsg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/temperature/setHeating\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\nheatingOn = false\nif (msg.payload == 1) heatingOn = true\n\nmsg.payload = {\n    \"heatingOn\": heatingOn\n};\n\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1160,
-        "y": 180,
-        "wires": [
-            [
-                "ac8cbb3e6c7e5faf"
-            ]
-        ]
-    },
-    {
-        "id": "ac8cbb3e6c7e5faf",
-        "type": "http request",
-        "z": "5765d2042467176e",
-        "name": "",
-        "method": "use",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "senderr": false,
-        "x": 1530,
-        "y": 440,
-        "wires": [
-            [
-                "c1e50d9228403761"
-            ]
-        ]
-    },
-    {
         "id": "c7497760547ae6d2",
         "type": "debug",
         "z": "5765d2042467176e",
@@ -135,8 +94,8 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1980,
-        "y": 400,
+        "x": 1840,
+        "y": 240,
         "wires": []
     },
     {
@@ -161,8 +120,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1780,
-        "y": 440,
+        "x": 1540,
+        "y": 160,
         "wires": [
             [
                 "c7497760547ae6d2"
@@ -185,252 +144,449 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1980,
-        "y": 480,
+        "x": 1840,
+        "y": 400,
         "wires": []
-    },
-    {
-        "id": "b6fca46eb614f77a",
-        "type": "function",
-        "z": "5765d2042467176e",
-        "name": "[HTTP POST SETTING] SetLight",
-        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/luminosity/setLights\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\nlightsOn = false\nif (msg.payload > 50) lightsOn = true\n\nmsg.payload = {\n    \"lightsON\": lightsOn\n};\n\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1150,
-        "y": 280,
-        "wires": [
-            [
-                "ac8cbb3e6c7e5faf"
-            ]
-        ]
-    },
-    {
-        "id": "80dd0c0fd04315db",
-        "type": "function",
-        "z": "5765d2042467176e",
-        "name": "[HTTP POST SETTING] Sprinkler",
-        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/soilHumidity/setSprinkler\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nif (msg.payload == 1) sprinklerStatus = true\nelse sprinklerStatus = false\n\nmsg.payload = {\n    \"sprinkler\": 3,\n    \"sprinklerON\": sprinklerStatus\n};\n\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1160,
-        "y": 500,
-        "wires": [
-            [
-                "ac8cbb3e6c7e5faf"
-            ]
-        ]
-    },
-    {
-        "id": "bccd87d7833dfd86",
-        "type": "function",
-        "z": "5765d2042467176e",
-        "name": "[HTTP POST SETTING] Fan",
-        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/co2/setFan\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\nfanOn = false\nif (msg.payload == 1) fanOn = true\n\nmsg.payload = {\n    \"fan\": 1,\n    \"fanON\": fanOn\n};\n\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1140,
-        "y": 600,
-        "wires": [
-            [
-                "ac8cbb3e6c7e5faf"
-            ]
-        ]
     },
     {
         "id": "2fe462ebc3a1e7fd",
         "type": "mqtt in",
         "z": "5765d2042467176e",
         "name": "",
-        "topic": "greenhouse/tomato-cultivation-thermostat/thermostat1/temperature/set",
+        "topic": "home/actuators/room2",
         "qos": "0",
-        "datatype": "auto",
+        "datatype": "json",
         "broker": "8a45ccd334f47670",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 650,
-        "y": 140,
+        "x": 820,
+        "y": 240,
         "wires": [
             [
-                "cf21937e15f701cf"
+                "78d1627193db73c6"
             ]
         ]
     },
     {
-        "id": "7b864f8f111e8288",
-        "type": "mqtt in",
+        "id": "787990a3205f9814",
+        "type": "function",
         "z": "5765d2042467176e",
-        "name": "",
-        "topic": "greenhouse/tomato-cultivation-thermostat/thermostat2/temperature/set",
-        "qos": "0",
-        "datatype": "auto",
-        "broker": "8a45ccd334f47670",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 650,
-        "y": 200,
+        "name": "Set myself",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.headers[\"content-type\"] = \"application/json\"\n\nif(msg.payload.parameter === \"status\"){\n    msg.url = \"http://web:8000/home/sensors/room-1/status\";\n} else if (msg.payload.parameter === \"batteryOutput\") {\n    msg.url = \"http://web:8000/home/sensors/room-1/battery/setBatteryOutput\";\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1050,
+        "y": 160,
         "wires": [
             [
-                "cf21937e15f701cf"
+                "601d2597142944f4"
             ]
         ]
     },
     {
-        "id": "bc06730328dcf1d0",
-        "type": "mqtt in",
+        "id": "601d2597142944f4",
+        "type": "http request",
         "z": "5765d2042467176e",
         "name": "",
-        "topic": "greenhouse/tomato-cultivation-light/light/luminosity/set",
-        "qos": "0",
-        "datatype": "auto",
-        "broker": "8a45ccd334f47670",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 700,
-        "y": 280,
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1270,
+        "y": 160,
         "wires": [
             [
-                "b6fca46eb614f77a"
+                "c1e50d9228403761"
             ]
         ]
     },
     {
-        "id": "53400a4dbf8f2aec",
+        "id": "55eb7ec1f33fd95f",
         "type": "mqtt in",
         "z": "5765d2042467176e",
         "name": "",
-        "topic": "greenhouse/tomato-cultivation-sprinkler/sprinkler1/power/set",
+        "topic": "home/actuators/room1",
         "qos": "0",
-        "datatype": "auto",
+        "datatype": "json",
         "broker": "8a45ccd334f47670",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 680,
-        "y": 380,
+        "x": 820,
+        "y": 160,
         "wires": [
             [
-                "bbae81f2473f9366"
+                "787990a3205f9814"
             ]
         ]
     },
     {
-        "id": "89a91a8a3ce3458e",
+        "id": "0daec4adc434d3b3",
         "type": "mqtt in",
         "z": "5765d2042467176e",
         "name": "",
-        "topic": "greenhouse/tomato-cultivation-sprinkler/sprinkler2/power/set",
+        "topic": "home/actuators/room3",
         "qos": "0",
-        "datatype": "auto",
+        "datatype": "json",
         "broker": "8a45ccd334f47670",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 680,
-        "y": 440,
+        "x": 820,
+        "y": 320,
         "wires": [
             [
-                "721a5a878f46c7ef"
+                "3e9f147786ea0c4c"
             ]
+        ]
+    },
+    {
+        "id": "0c3ac94d7e968fcc",
+        "type": "mqtt in",
+        "z": "5765d2042467176e",
+        "name": "",
+        "topic": "home/actuators/room4",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 820,
+        "y": 400,
+        "wires": [
+            [
+                "c8548b1c8b5aa022"
+            ]
+        ]
+    },
+    {
+        "id": "2a3c2e9fddec2f20",
+        "type": "mqtt in",
+        "z": "5765d2042467176e",
+        "name": "",
+        "topic": "home/actuators/room5",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "8a45ccd334f47670",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 820,
+        "y": 480,
+        "wires": [
+            [
+                "51fb6b01d6df0930"
+            ]
+        ]
+    },
+    {
+        "id": "78d1627193db73c6",
+        "type": "function",
+        "z": "5765d2042467176e",
+        "name": "Set myself",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.headers[\"content-type\"] = \"application/json\"\n\nif(msg.payload.parameter === \"status\"){\n    msg.url = \"http://web:8000/home/sensors/room-2/status\";\n} else if (msg.payload.parameter === \"batteryOutput\") {\n    msg.url = \"http://web:8000/home/sensors/room-2/battery/setBatteryOutput\";\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1050,
+        "y": 240,
+        "wires": [
+            [
+                "cfe7878c5ef120e9"
+            ]
+        ]
+    },
+    {
+        "id": "3e9f147786ea0c4c",
+        "type": "function",
+        "z": "5765d2042467176e",
+        "name": "Set myself",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.headers[\"content-type\"] = \"application/json\"\n\nif(msg.payload.parameter === \"status\"){\n    msg.url = \"http://web:8000/home/sensors/room-3/status\";\n} else if (msg.payload.parameter === \"batteryOutput\") {\n    msg.url = \"http://web:8000/home/sensors/room-3/battery/setBatteryOutput\";\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1050,
+        "y": 320,
+        "wires": [
+            [
+                "56e10167d2f024e7"
+            ]
+        ]
+    },
+    {
+        "id": "c8548b1c8b5aa022",
+        "type": "function",
+        "z": "5765d2042467176e",
+        "name": "Set myself",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.headers[\"content-type\"] = \"application/json\"\n\nif(msg.payload.parameter === \"status\"){\n    msg.url = \"http://web:8000/home/sensors/room-4/status\";\n} else if (msg.payload.parameter === \"batteryOutput\") {\n    msg.url = \"http://web:8000/home/sensors/room-4/battery/setBatteryOutput\";\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1050,
+        "y": 400,
+        "wires": [
+            [
+                "97bd677abea4c9af"
+            ]
+        ]
+    },
+    {
+        "id": "51fb6b01d6df0930",
+        "type": "function",
+        "z": "5765d2042467176e",
+        "name": "Set myself",
+        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.headers[\"content-type\"] = \"application/json\"\n\nif(msg.payload.parameter === \"status\"){\n    msg.url = \"http://web:8000/home/sensors/room-5/status\";\n} else if (msg.payload.parameter === \"batteryOutput\") {\n    msg.url = \"http://web:8000/home/sensors/room-5/battery/setBatteryOutput\";\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1050,
+        "y": 480,
+        "wires": [
+            [
+                "7bb7c9d2add2fc10"
+            ]
+        ]
+    },
+    {
+        "id": "cfe7878c5ef120e9",
+        "type": "http request",
+        "z": "5765d2042467176e",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1270,
+        "y": 240,
+        "wires": [
+            [
+                "edb38ad71416ff45"
+            ]
+        ]
+    },
+    {
+        "id": "56e10167d2f024e7",
+        "type": "http request",
+        "z": "5765d2042467176e",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1270,
+        "y": 320,
+        "wires": [
+            [
+                "833ce1c9b0c18642"
+            ]
+        ]
+    },
+    {
+        "id": "97bd677abea4c9af",
+        "type": "http request",
+        "z": "5765d2042467176e",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1270,
+        "y": 400,
+        "wires": [
+            [
+                "93ec9effba044314"
+            ]
+        ]
+    },
+    {
+        "id": "7bb7c9d2add2fc10",
+        "type": "http request",
+        "z": "5765d2042467176e",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1270,
+        "y": 480,
+        "wires": [
+            [
+                "d757e0e22496aae6"
+            ]
+        ]
+    },
+    {
+        "id": "edb38ad71416ff45",
+        "type": "switch",
+        "z": "5765d2042467176e",
+        "name": "CheckResponseStatus",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "204",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "204",
+                "vt": "str"
+            }
         ],
-        "outputLabels": [
-            "oo"
-        ]
-    },
-    {
-        "id": "561d21c568c6bc9a",
-        "type": "mqtt in",
-        "z": "5765d2042467176e",
-        "name": "",
-        "topic": "greenhouse/tomato-cultivation-sprinkler/sprinkler3/power/set",
-        "qos": "0",
-        "datatype": "auto",
-        "broker": "8a45ccd334f47670",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 680,
-        "y": 500,
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1540,
+        "y": 240,
         "wires": [
             [
-                "80dd0c0fd04315db"
+                "c7497760547ae6d2"
+            ],
+            [
+                "ae95f3a966d3eac1"
             ]
         ]
     },
     {
-        "id": "fe41db205e22469e",
-        "type": "mqtt in",
+        "id": "833ce1c9b0c18642",
+        "type": "switch",
         "z": "5765d2042467176e",
-        "name": "",
-        "topic": "greenhouse/tomato-cultivation-fan/fan/power/set",
-        "qos": "0",
-        "datatype": "auto",
-        "broker": "8a45ccd334f47670",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 740,
-        "y": 600,
+        "name": "CheckResponseStatus",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "204",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "204",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1540,
+        "y": 320,
         "wires": [
             [
-                "bccd87d7833dfd86"
+                "c7497760547ae6d2"
+            ],
+            [
+                "ae95f3a966d3eac1"
             ]
         ]
     },
     {
-        "id": "bbae81f2473f9366",
-        "type": "function",
+        "id": "93ec9effba044314",
+        "type": "switch",
         "z": "5765d2042467176e",
-        "name": "[HTTP POST SETTING] Sprinkler",
-        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/soilHumidity/setSprinkler\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nif (msg.payload == 1) sprinklerStatus = true\nelse sprinklerStatus = false\n\nmsg.payload = {\n    \"sprinkler\": 1,\n    \"sprinklerON\": sprinklerStatus\n};\n\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1160,
-        "y": 380,
+        "name": "CheckResponseStatus",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "204",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "204",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1540,
+        "y": 400,
         "wires": [
             [
-                "ac8cbb3e6c7e5faf"
+                "c7497760547ae6d2"
+            ],
+            [
+                "ae95f3a966d3eac1"
             ]
         ]
     },
     {
-        "id": "721a5a878f46c7ef",
-        "type": "function",
+        "id": "d757e0e22496aae6",
+        "type": "switch",
         "z": "5765d2042467176e",
-        "name": "[HTTP POST SETTING] Sprinkler",
-        "func": "msg.headers = {}\nmsg.method = \"POST\"\nmsg.url = \"http://web:8000/greenhouse/tomato-cultivation/soilHumidity/setSprinkler\";\nmsg.headers[\"content-type\"] = \"application/json\"\n\n\nif (msg.payload == 1) sprinklerStatus = true\nelse sprinklerStatus = false\n\nmsg.payload = {\n    \"sprinkler\": 2,\n    \"sprinklerON\": sprinklerStatus\n};\n\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1160,
-        "y": 440,
+        "name": "CheckResponseStatus",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "204",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "204",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1540,
+        "y": 480,
         "wires": [
             [
-                "ac8cbb3e6c7e5faf"
+                "c7497760547ae6d2"
+            ],
+            [
+                "ae95f3a966d3eac1"
             ]
         ]
     },
@@ -462,9 +618,7 @@
                 "50e78db6af651860",
                 "8e3edd988091735f",
                 "614cef6ecc25f4bc",
-                "a47feedeee6e4c2b",
-                "5c2cd860838da005",
-                "3613e78f3113a4b3"
+                "a47feedeee6e4c2b"
             ]
         ]
     },
@@ -483,10 +637,11 @@
         "authType": "",
         "senderr": false,
         "x": 300,
-        "y": 160,
+        "y": 200,
         "wires": [
             [
-                "05ee707dcf7559f8"
+                "05ee707dcf7559f8",
+                "5c2cd860838da005"
             ]
         ]
     },
@@ -602,7 +757,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 560,
+        "y": 480,
         "wires": [
             [
                 "16ed192a12e441fe"
@@ -629,7 +784,8 @@
             [
                 "a890097867db9058",
                 "a879cf1a835dc8a7",
-                "2e9866aaa5e5bb35"
+                "2e9866aaa5e5bb35",
+                "b032add62189dd5d"
             ]
         ]
     },
@@ -645,7 +801,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 640,
+        "y": 560,
         "wires": [
             [
                 "16ed192a12e441fe"
@@ -664,7 +820,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 720,
+        "y": 640,
         "wires": [
             [
                 "16ed192a12e441fe"
@@ -714,7 +870,7 @@
         "type": "function",
         "z": "b36f7b70e4913aeb",
         "name": "",
-        "func": "msg.payload = 20\nmsg.topic = \"sockets\"\nreturn msg",
+        "func": "msg.payload = msg.payload.sockets\nmsg.topic = \"sockets\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -729,18 +885,18 @@
         ]
     },
     {
-        "id": "3613e78f3113a4b3",
+        "id": "b032add62189dd5d",
         "type": "function",
         "z": "b36f7b70e4913aeb",
         "name": "",
-        "func": "msg.payload = 1\nmsg.topic = \"status\"\nreturn msg",
+        "func": "msg.payload = msg.payload.status\nmsg.topic = \"status\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 480,
+        "y": 720,
         "wires": [
             [
                 "16ed192a12e441fe"
@@ -773,11 +929,9 @@
             [
                 "793e1897b3b800de",
                 "b91d89e0923f5395",
-                "50e11ceefff40109",
                 "4ac6510b8bce1377",
                 "a2e866d3605e8ab7",
-                "54702aeba5b57d1d",
-                "21f0a3190d78551b"
+                "54702aeba5b57d1d"
             ]
         ]
     },
@@ -817,7 +971,8 @@
         "y": 100,
         "wires": [
             [
-                "a20082b96dbc4a2e"
+                "a20082b96dbc4a2e",
+                "50e11ceefff40109"
             ]
         ]
     },
@@ -915,7 +1070,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 500,
+        "y": 420,
         "wires": [
             [
                 "41320a64d4bcb80f"
@@ -942,7 +1097,8 @@
             [
                 "62b6a34bc4bcce0d",
                 "924524d2d440809f",
-                "cbd69aea3fa482eb"
+                "cbd69aea3fa482eb",
+                "21f0a3190d78551b"
             ]
         ]
     },
@@ -1027,7 +1183,7 @@
         "type": "function",
         "z": "4d6ea87134e4adb6",
         "name": "",
-        "func": "msg.payload = 25\nmsg.topic = \"sockets\"\nreturn msg",
+        "func": "msg.payload = msg.payload.sockets\nmsg.topic = \"sockets\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1046,14 +1202,14 @@
         "type": "function",
         "z": "4d6ea87134e4adb6",
         "name": "",
-        "func": "msg.payload = 1\nmsg.topic = \"status\"\nreturn msg",
+        "func": "msg.payload = msg.payload.status\nmsg.topic = \"status\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 420,
+        "y": 500,
         "wires": [
             [
                 "41320a64d4bcb80f"
@@ -1086,10 +1242,8 @@
             [
                 "6ee60554152e34ff",
                 "db567ac5db1406f6",
-                "d725f296e1beed09",
                 "1340fed289b6be1e",
                 "ca8e02343261c2e0",
-                "68e723dc7fb5afdf",
                 "53fc3b933e490e38"
             ]
         ]
@@ -1174,7 +1328,8 @@
         "y": 180,
         "wires": [
             [
-                "1f1a4fbfdd0aa434"
+                "1f1a4fbfdd0aa434",
+                "d725f296e1beed09"
             ]
         ]
     },
@@ -1228,7 +1383,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 580,
+        "y": 500,
         "wires": [
             [
                 "beb958da645a8af8"
@@ -1255,7 +1410,8 @@
             [
                 "b7d913a46804814a",
                 "365da3b087c8a5d6",
-                "5e7b89b13641d6a0"
+                "5e7b89b13641d6a0",
+                "68e723dc7fb5afdf"
             ]
         ]
     },
@@ -1340,7 +1496,7 @@
         "type": "function",
         "z": "4de722645afa96cc",
         "name": "",
-        "func": "msg.payload = 40\nmsg.topic = \"sockets\"\nreturn msg",
+        "func": "msg.payload = msg.payload.sockets\nmsg.topic = \"sockets\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1359,14 +1515,14 @@
         "type": "function",
         "z": "4de722645afa96cc",
         "name": "",
-        "func": "msg.payload = 1\nmsg.topic = \"status\"\nreturn msg",
+        "func": "msg.payload = msg.payload.status\nmsg.topic = \"status\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 500,
+        "y": 580,
         "wires": [
             [
                 "beb958da645a8af8"
@@ -1399,9 +1555,7 @@
             [
                 "e1bb580166fc6607",
                 "fde725d01428c60f",
-                "e08e82f694e47048",
                 "b96929df6ad1ef8d",
-                "126a8486bfadd025",
                 "99281cb5edbb1d9c",
                 "ece44a80e54cc1f3"
             ]
@@ -1487,7 +1641,8 @@
         "y": 120,
         "wires": [
             [
-                "e6b50784be58d926"
+                "e6b50784be58d926",
+                "e08e82f694e47048"
             ]
         ]
     },
@@ -1541,7 +1696,7 @@
         "finalize": "",
         "libs": [],
         "x": 480,
-        "y": 520,
+        "y": 440,
         "wires": [
             [
                 "466a68b7d05a6f8f"
@@ -1568,7 +1723,8 @@
             [
                 "053cad078c3252c4",
                 "4e8350206168c05e",
-                "590cc535cc0751d1"
+                "590cc535cc0751d1",
+                "126a8486bfadd025"
             ]
         ]
     },
@@ -1653,7 +1809,7 @@
         "type": "function",
         "z": "2566bd04b1530eee",
         "name": "",
-        "func": "msg.payload = 8\nmsg.topic = \"sockets\"\nreturn msg",
+        "func": "msg.payload = msg.payload.sockets\nmsg.topic = \"sockets\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1672,14 +1828,14 @@
         "type": "function",
         "z": "2566bd04b1530eee",
         "name": "",
-        "func": "msg.payload = 1\nmsg.topic = \"status\"\nreturn msg",
+        "func": "msg.payload = msg.payload.status\nmsg.topic = \"status\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 480,
-        "y": 440,
+        "y": 520,
         "wires": [
             [
                 "466a68b7d05a6f8f"
@@ -1711,10 +1867,8 @@
         "wires": [
             [
                 "df9730f2667c64cd",
-                "f8af56ade312c76b",
                 "2c3dffba55ce9cbc",
                 "735b932062d1b4c7",
-                "6dccc5a58ca3c86f",
                 "baddb38e8fb5dd78",
                 "2eec5438b15376a4"
             ]
@@ -1800,7 +1954,8 @@
         "y": 100,
         "wires": [
             [
-                "062e86814ff32f29"
+                "062e86814ff32f29",
+                "f8af56ade312c76b"
             ]
         ]
     },
@@ -1854,7 +2009,7 @@
         "finalize": "",
         "libs": [],
         "x": 480,
-        "y": 500,
+        "y": 420,
         "wires": [
             [
                 "b5af744a5369f84b"
@@ -1881,7 +2036,8 @@
             [
                 "2f1542f0b13ca509",
                 "ba4e52d35490c8a0",
-                "3686f9f73166d02f"
+                "3686f9f73166d02f",
+                "6dccc5a58ca3c86f"
             ]
         ]
     },
@@ -1966,7 +2122,7 @@
         "type": "function",
         "z": "ba0c76d3615074a6",
         "name": "",
-        "func": "msg.payload = 68\nmsg.topic = \"sockets\"\nreturn msg",
+        "func": "msg.payload = msg.payload.sockets\nmsg.topic = \"sockets\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1985,14 +2141,14 @@
         "type": "function",
         "z": "ba0c76d3615074a6",
         "name": "",
-        "func": "msg.payload = 1\nmsg.topic = \"status\"\nreturn msg",
+        "func": "msg.payload = msg.payload.status\nmsg.topic = \"status\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 480,
-        "y": 420,
+        "y": 500,
         "wires": [
             [
                 "b5af744a5369f84b"
@@ -2025,7 +2181,6 @@
             [
                 "9927df5fe905e206",
                 "f89a3bfc18583446",
-                "13fc95cdfc5feaee",
                 "03ef978dae9b36cb",
                 "f30a872a7826518a"
             ]
@@ -2124,7 +2279,7 @@
         "finalize": "",
         "libs": [],
         "x": 580,
-        "y": 300,
+        "y": 220,
         "wires": [
             [
                 "0d833b9751bca0d4"
@@ -2152,7 +2307,8 @@
                 "295f07a2dc8ec683",
                 "10292522de3c2f57",
                 "db95a423b100d26c",
-                "26fe6df107d59082"
+                "26fe6df107d59082",
+                "13fc95cdfc5feaee"
             ]
         ]
     },
@@ -2237,14 +2393,14 @@
         "type": "function",
         "z": "2e6ec7d666e24030",
         "name": "",
-        "func": "msg.payload = 1\nmsg.topic = \"status\"\nreturn msg",
+        "func": "msg.payload = msg.payload.status\nmsg.topic = \"status\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 580,
-        "y": 220,
+        "y": 300,
         "wires": [
             [
                 "0d833b9751bca0d4"

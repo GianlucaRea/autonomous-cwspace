@@ -6,6 +6,7 @@ module.exports = class Battery {
         this.input = settings.input;
         this.frequency = settings.frequency;
         this.output = settings.output;
+        this.status = settings.status;
         this.timestamp = Date.now();
         this.startSimulation();
     }
@@ -20,7 +21,8 @@ module.exports = class Battery {
                 timeOfMeasurement: this.timestamp,
                 level: this.level,
                 output: this.output,
-                input:this.input
+                input: this.input,
+                status: this.status
             });
         }
     }
@@ -32,8 +34,20 @@ module.exports = class Battery {
                 level: null,
                 output: 5000,
                 input: 5000,
-                energyDemand: 0
+                energyDemand: 0,
+                status: 1
             });
+        }
+    }
+
+    setBatteryOutput(){
+        return (req, res) => {
+            console.log("BATTERY OUTPUT METHOD CALLED");
+            console.log("Output before " + this.output );
+            this.output = req.body.value;
+            console.log("Output after " + this.output);
+            res.status(204).send();
+            
         }
     }
 
@@ -50,6 +64,17 @@ module.exports = class Battery {
             if (this.input > 0 && this.input < 100) this.input = this.input - generateRandomNumber(0,3) + generateRandomNumber(0,3);
             if(this.input < 0) this.input = 0;
             this.timestamp = Date.now();
+        }
+    }
+
+    setStatus(){
+        return (req, res) => {
+            console.log("STATUS METHOD CALLED");
+            console.log(req.body.value);
+            this.status = req.body.value;
+            this.input = req.body.value;
+            console.log("Status Stop");
+            res.status(204).send();
         }
     }
 
