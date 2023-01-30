@@ -71,11 +71,11 @@ module.exports = class Energy {
 
                 let x = generateRandomNumber(0,10);
                 if(x <= 3){
-                    this.energy += 75;
+                    this.energy += 10;
                     this.energy = Math.trunc(this.energy );
                 }
                 else if (x >= 6){
-                    this.energy -= 50;
+                    this.energy -= 5;
                     this.energy = Math.trunc(this.energy);
                 } else {
                     this.energy = Math.trunc(this.energy);
