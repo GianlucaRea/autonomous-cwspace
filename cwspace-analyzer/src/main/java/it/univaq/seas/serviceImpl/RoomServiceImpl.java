@@ -59,7 +59,9 @@ public class RoomServiceImpl implements RoomService {
             symptomMessage.setRooms(null);
             symptomMessage.setSymptomId(SymptomId.ENERGY_CONSUMPTION_ADAPTATION_REQUESTED);
             symptomMessage.setAlert(value);
-            HttpConnection.invoke(Utility.convertMessageToJSONString(symptomMessage),URL);
+            String json = Utility.convertMessageToJSONString(symptomMessage);
+            HttpConnection.invoke(json,URL);
+            Utility.publish("home/analyzer/energyConsumption",json,DOCKERIZED);
 
         }
     }
@@ -92,8 +94,11 @@ public class RoomServiceImpl implements RoomService {
             symptomMessage.setRooms(topics);
             System.out.println("url: " +URL);
             System.out.println("Status adaptation for" + symptomMessage.getRooms().toString());
+            String json = Utility.convertMessageToJSONString(symptomMessage);
             String message = Utility.convertMessageToJSONString(symptomMessage);
             HttpConnection.invoke(message,URL);
+            Utility.publish("home/analyzer/status",json,DOCKERIZED);
+
         }
     }
 //EOF

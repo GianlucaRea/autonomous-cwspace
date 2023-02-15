@@ -1,0 +1,13 @@
+it/univaq/seas/job/EnergyConsuptionAdaptation.class
+it/univaq/seas/job/Scheduler.class
+it/univaq/seas/dao/RoomDao.class
+it/univaq/seas/model/RoomData.class
+it/univaq/seas/utilities/HttpConnection$2.class
+it/univaq/seas/model/SymptomId.class
+it/univaq/seas/daoImpl/RoomDaoImpl.class
+it/univaq/seas/utilities/HttpConnection.class
+it/univaq/seas/daoImpl/InfluxdbConnection.class
+it/univaq/seas/App.class
+it/univaq/seas/model/SymptomMessage.class
+it/univaq/seas/service/RoomService.class
+it/univaq/seas/utilities/HttpConnection$1.class

@@ -3,6 +3,7 @@ package it.univaq.seas.utilities;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import it.univaq.seas.model.SymptomMessage;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.eclipse.paho.client.mqttv3.*;
 
 /**
  * @author gianlucarea
@@ -10,6 +11,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class Utility {
 
     public static boolean dockerized = true;
+    private static MqttClient systemClient = null;
+
+    private static String url;
+
 
     public static String convertMessageToJSONString(SymptomMessage message) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -38,5 +43,17 @@ public class Utility {
         if(checkValue == 0) {
             return false;
         } else return true;
+    }
+
+    public static void publish(String topic, String data, boolean dockerize) {
+        try {
+            if (dockerize) { url = "tcp://mosquitto:1883"; } else { url = "tpc://localhost:1883"; }
+            systemClient = new MqttClient(url,"Analyzer_SystemClient");
+            systemClient.connect();
+            MqttMessage message = new MqttMessage();
+            message.setPayload(data.getBytes());
+            systemClient.publish(topic, message);
+
+        } catch (MqttException e) { e.printStackTrace(); }
     }
 }

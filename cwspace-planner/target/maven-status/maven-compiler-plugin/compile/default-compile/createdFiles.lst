@@ -1,1 +1,7 @@
+it/univaq/seas/model/RoomData.class
+it/univaq/seas/utility/Utility.class
+it/univaq/seas/RestController.class
+it/univaq/seas/daoImpl/RoomDaoImpl.class
+it/univaq/seas/model/Message.class
 it/univaq/seas/model/AdaptationMessage.class
+it/univaq/seas/dao/RoomDao.class

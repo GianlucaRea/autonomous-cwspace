@@ -1,5 +1,13 @@
 [
     {
+        "id": "1dd7f151915a547d",
+        "type": "tab",
+        "label": "Sensing",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "5765d2042467176e",
         "type": "tab",
         "label": "Acting",
@@ -11,7 +19,7 @@
         "id": "b36f7b70e4913aeb",
         "type": "tab",
         "label": "room-1",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -19,7 +27,7 @@
         "id": "4d6ea87134e4adb6",
         "type": "tab",
         "label": "room-2",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -27,7 +35,7 @@
         "id": "4de722645afa96cc",
         "type": "tab",
         "label": "room-3",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -35,7 +43,7 @@
         "id": "2566bd04b1530eee",
         "type": "tab",
         "label": "room-4",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -43,14 +51,14 @@
         "id": "ba0c76d3615074a6",
         "type": "tab",
         "label": "room-5",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
     {
         "id": "2e6ec7d666e24030",
         "type": "tab",
-        "label": "room-0",
+        "label": "Grid",
         "disabled": false,
         "info": "",
         "env": []
@@ -82,11 +90,450 @@
         "sessionExpiry": ""
     },
     {
+        "id": "63674aae2afeddaf",
+        "type": "inject",
+        "z": "1dd7f151915a547d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "5",
+        "topic": "",
+        "payloadType": "date",
+        "x": 70,
+        "y": 320,
+        "wires": [
+            [
+                "859b90ee91177e65"
+            ]
+        ]
+    },
+    {
+        "id": "b07288c1fb3ce37c",
+        "type": "http request",
+        "z": "1dd7f151915a547d",
+        "name": "room-1-energy",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/home/sensors/room-{{{i}}}/energy",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 920,
+        "y": 120,
+        "wires": [
+            [
+                "3d604521ce9c77ba",
+                "605417f58238c7b4",
+                "7ba09611f22fd1c4"
+            ]
+        ]
+    },
+    {
+        "id": "660091ee8f6c625b",
+        "type": "join",
+        "z": "1dd7f151915a547d",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 1410,
+        "y": 360,
+        "wires": [
+            [
+                "e970e6caa8154c70"
+            ]
+        ]
+    },
+    {
+        "id": "e970e6caa8154c70",
+        "type": "json",
+        "z": "1dd7f151915a547d",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 1590,
+        "y": 360,
+        "wires": [
+            [
+                "a3c92fa5753f4327",
+                "3458f824f2e0bc32"
+            ]
+        ]
+    },
+    {
+        "id": "c594b3a6c033e937",
+        "type": "mqtt out",
+        "z": "1dd7f151915a547d",
+        "name": "",
+        "topic": "",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8a45ccd334f47670",
+        "x": 1950,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "eb91148d30a6a007",
+        "type": "function",
+        "z": "1dd7f151915a547d",
+        "name": "",
+        "func": "msg.payload = msg.i\nmsg.topic = \"roomId\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1120,
+        "y": 280,
+        "wires": [
+            [
+                "660091ee8f6c625b"
+            ]
+        ]
+    },
+    {
+        "id": "1a2f8ebea9222442",
+        "type": "function",
+        "z": "1dd7f151915a547d",
+        "name": "",
+        "func": "msg.payload = \"room-\" + msg.i\nmsg.topic = \"roomName\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1120,
+        "y": 360,
+        "wires": [
+            [
+                "660091ee8f6c625b"
+            ]
+        ]
+    },
+    {
+        "id": "c4e5de5c66bb04b7",
+        "type": "http request",
+        "z": "1dd7f151915a547d",
+        "name": "room-1-battery",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://web:8000/home/sensors/room-{{{i}}}/battery",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 920,
+        "y": 600,
+        "wires": [
+            [
+                "18a93cce34376b10",
+                "7d651d8e3d0472a4",
+                "b108c7ecc50b7bbd",
+                "2cc84e41316365c3"
+            ]
+        ]
+    },
+    {
+        "id": "18a93cce34376b10",
+        "type": "function",
+        "z": "1dd7f151915a547d",
+        "name": "",
+        "func": "msg.payload = msg.payload.level\nmsg.topic = \"batteryLevel\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1120,
+        "y": 440,
+        "wires": [
+            [
+                "660091ee8f6c625b"
+            ]
+        ]
+    },
+    {
+        "id": "7d651d8e3d0472a4",
+        "type": "function",
+        "z": "1dd7f151915a547d",
+        "name": "",
+        "func": "msg.payload = msg.payload.output\nmsg.topic = \"batteryOutput\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1120,
+        "y": 520,
+        "wires": [
+            [
+                "660091ee8f6c625b"
+            ]
+        ]
+    },
+    {
+        "id": "b108c7ecc50b7bbd",
+        "type": "function",
+        "z": "1dd7f151915a547d",
+        "name": "",
+        "func": "msg.payload = msg.payload.input\nmsg.topic = \"batteryInput\"\nmsg.complete = \"YES\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1120,
+        "y": 680,
+        "wires": [
+            [
+                "660091ee8f6c625b"
+            ]
+        ]
+    },
+    {
+        "id": "7ba09611f22fd1c4",
+        "type": "function",
+        "z": "1dd7f151915a547d",
+        "name": "",
+        "func": "msg.payload = 100\nmsg.topic = \"batteryCapacity\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1120,
+        "y": 200,
+        "wires": [
+            [
+                "660091ee8f6c625b"
+            ]
+        ]
+    },
+    {
+        "id": "2cc84e41316365c3",
+        "type": "function",
+        "z": "1dd7f151915a547d",
+        "name": "",
+        "func": "msg.payload = msg.payload.status\nmsg.topic = \"status\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1120,
+        "y": 600,
+        "wires": [
+            [
+                "660091ee8f6c625b"
+            ]
+        ]
+    },
+    {
+        "id": "605417f58238c7b4",
+        "type": "function",
+        "z": "1dd7f151915a547d",
+        "name": "",
+        "func": "msg.payload = msg.payload.sockets\nmsg.topic = \"sockets\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1120,
+        "y": 120,
+        "wires": [
+            [
+                "660091ee8f6c625b"
+            ]
+        ]
+    },
+    {
+        "id": "3d604521ce9c77ba",
+        "type": "function",
+        "z": "1dd7f151915a547d",
+        "name": "",
+        "func": "msg.payload = msg.payload.data\nmsg.topic = \"energyDemand\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1120,
+        "y": 40,
+        "wires": [
+            [
+                "660091ee8f6c625b"
+            ]
+        ]
+    },
+    {
+        "id": "859b90ee91177e65",
+        "type": "function",
+        "z": "1dd7f151915a547d",
+        "name": "i = 1",
+        "func": "msg.i = 1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 320,
+        "wires": [
+            [
+                "e9f1717905ce43ff"
+            ]
+        ]
+    },
+    {
+        "id": "e9f1717905ce43ff",
+        "type": "switch",
+        "z": "1dd7f151915a547d",
+        "name": "i < 6",
+        "property": "i",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "gte",
+                "v": "6",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 380,
+        "y": 320,
+        "wires": [
+            [
+                "b07288c1fb3ce37c",
+                "eb91148d30a6a007",
+                "1a2f8ebea9222442",
+                "c4e5de5c66bb04b7"
+            ],
+            [
+                "2b32843f1f00ad26"
+            ]
+        ]
+    },
+    {
+        "id": "2b32843f1f00ad26",
+        "type": "template",
+        "z": "1dd7f151915a547d",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "msg.payload = \"end\";",
+        "output": "str",
+        "x": 460,
+        "y": 480,
+        "wires": [
+            [
+                "82b61513df604710"
+            ]
+        ]
+    },
+    {
+        "id": "a3c92fa5753f4327",
+        "type": "function",
+        "z": "1dd7f151915a547d",
+        "name": "",
+        "func": "msg.i = msg.i + 1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 180,
+        "wires": [
+            [
+                "e9f1717905ce43ff"
+            ]
+        ]
+    },
+    {
+        "id": "82b61513df604710",
+        "type": "debug",
+        "z": "1dd7f151915a547d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "3458f824f2e0bc32",
+        "type": "function",
+        "z": "1dd7f151915a547d",
+        "name": "",
+        "func": "msg.topic = \"home/sensors/room\"+msg.i\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1760,
+        "y": 360,
+        "wires": [
+            [
+                "c594b3a6c033e937"
+            ]
+        ]
+    },
+    {
         "id": "c7497760547ae6d2",
         "type": "debug",
         "z": "5765d2042467176e",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -136,7 +583,7 @@
         "type": "debug",
         "z": "5765d2042467176e",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -618,8 +1065,7 @@
                 "50e78db6af651860",
                 "8e3edd988091735f",
                 "614cef6ecc25f4bc",
-                "a47feedeee6e4c2b",
-                "5c2cd860838da005"
+                "a47feedeee6e4c2b"
             ]
         ]
     },
@@ -638,10 +1084,11 @@
         "authType": "",
         "senderr": false,
         "x": 300,
-        "y": 160,
+        "y": 200,
         "wires": [
             [
-                "05ee707dcf7559f8"
+                "05ee707dcf7559f8",
+                "5c2cd860838da005"
             ]
         ]
     },
@@ -870,7 +1317,7 @@
         "type": "function",
         "z": "b36f7b70e4913aeb",
         "name": "",
-        "func": "msg.payload = 20\nmsg.topic = \"sockets\"\nreturn msg",
+        "func": "msg.payload = msg.payload.sockets\nmsg.topic = \"sockets\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -929,7 +1376,6 @@
             [
                 "793e1897b3b800de",
                 "b91d89e0923f5395",
-                "50e11ceefff40109",
                 "4ac6510b8bce1377",
                 "a2e866d3605e8ab7",
                 "54702aeba5b57d1d"
@@ -972,7 +1418,8 @@
         "y": 100,
         "wires": [
             [
-                "a20082b96dbc4a2e"
+                "a20082b96dbc4a2e",
+                "50e11ceefff40109"
             ]
         ]
     },
@@ -1183,7 +1630,7 @@
         "type": "function",
         "z": "4d6ea87134e4adb6",
         "name": "",
-        "func": "msg.payload = 25\nmsg.topic = \"sockets\"\nreturn msg",
+        "func": "msg.payload = msg.payload.sockets\nmsg.topic = \"sockets\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1242,7 +1689,6 @@
             [
                 "6ee60554152e34ff",
                 "db567ac5db1406f6",
-                "d725f296e1beed09",
                 "1340fed289b6be1e",
                 "ca8e02343261c2e0",
                 "53fc3b933e490e38"
@@ -1329,7 +1775,8 @@
         "y": 180,
         "wires": [
             [
-                "1f1a4fbfdd0aa434"
+                "1f1a4fbfdd0aa434",
+                "d725f296e1beed09"
             ]
         ]
     },
@@ -1496,7 +1943,7 @@
         "type": "function",
         "z": "4de722645afa96cc",
         "name": "",
-        "func": "msg.payload = 40\nmsg.topic = \"sockets\"\nreturn msg",
+        "func": "msg.payload = msg.payload.sockets\nmsg.topic = \"sockets\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1555,7 +2002,6 @@
             [
                 "e1bb580166fc6607",
                 "fde725d01428c60f",
-                "e08e82f694e47048",
                 "b96929df6ad1ef8d",
                 "99281cb5edbb1d9c",
                 "ece44a80e54cc1f3"
@@ -1642,7 +2088,8 @@
         "y": 120,
         "wires": [
             [
-                "e6b50784be58d926"
+                "e6b50784be58d926",
+                "e08e82f694e47048"
             ]
         ]
     },
@@ -1809,7 +2256,7 @@
         "type": "function",
         "z": "2566bd04b1530eee",
         "name": "",
-        "func": "msg.payload = 8\nmsg.topic = \"sockets\"\nreturn msg",
+        "func": "msg.payload = msg.payload.sockets\nmsg.topic = \"sockets\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1867,7 +2314,6 @@
         "wires": [
             [
                 "df9730f2667c64cd",
-                "f8af56ade312c76b",
                 "2c3dffba55ce9cbc",
                 "735b932062d1b4c7",
                 "baddb38e8fb5dd78",
@@ -1955,7 +2401,8 @@
         "y": 100,
         "wires": [
             [
-                "062e86814ff32f29"
+                "062e86814ff32f29",
+                "f8af56ade312c76b"
             ]
         ]
     },
@@ -2122,7 +2569,7 @@
         "type": "function",
         "z": "ba0c76d3615074a6",
         "name": "",
-        "func": "msg.payload = 68\nmsg.topic = \"sockets\"\nreturn msg",
+        "func": "msg.payload = msg.payload.sockets\nmsg.topic = \"sockets\"\nreturn msg",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
