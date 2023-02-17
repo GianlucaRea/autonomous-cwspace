@@ -7,7 +7,6 @@ import it.univaq.seas.model.RoomData;
 import it.univaq.seas.model.SymptomId;
 import it.univaq.seas.model.SymptomMessage;
 import it.univaq.seas.service.RoomService;
-import it.univaq.seas.utilities.HttpConnection;
 import it.univaq.seas.utilities.Utility;
 
 import java.util.ArrayList;
@@ -20,8 +19,6 @@ import java.util.concurrent.ExecutionException;
 public class RoomServiceImpl implements RoomService {
 
     private RoomDao roomDao = new RoomDaoImpl();
-    private String DOCKERURL = "http://cwspace-planner:8081/"; 
-    private String LOCALURL = "http://localhost:8081/";
     private Boolean DOCKERIZED = Utility.dockerized;
 
     @Override
@@ -32,7 +29,6 @@ public class RoomServiceImpl implements RoomService {
             symptomMessage.setRooms(topics);
             symptomMessage.setSymptomId(SymptomId.BATTERY_EMPTY_LEVEL_WARNING);
             symptomMessage.setAlert(battery_level);
-            HttpConnection.invoke(Utility.convertMessageToJSONString(symptomMessage));
         }
     }
 
@@ -44,14 +40,11 @@ public class RoomServiceImpl implements RoomService {
             symptomMessage.setRooms(topics);
             symptomMessage.setSymptomId(SymptomId.BATTERY_FULL_LEVEL_WARNING);
             symptomMessage.setAlert(battery_level);
-            HttpConnection.invoke(Utility.convertMessageToJSONString(symptomMessage));
         }
     }
 
     @Override
-    public void energyConsuptionAdaptation() throws JsonProcessingException, ExecutionException, InterruptedException {
-        String endpoint = "energyConsumptionAdaptation";
-        String URL = (DOCKERIZED) ? (DOCKERURL + endpoint) : (LOCALURL + endpoint);
+    public void energyConsuptionAdaptation() throws JsonProcessingException {
         int value = roomDao.checkEnergyConsuptionAdaptation();
         if (value != 0) {
             System.out.println(" EnergyConsuptionAdaptation ");
@@ -60,16 +53,12 @@ public class RoomServiceImpl implements RoomService {
             symptomMessage.setSymptomId(SymptomId.ENERGY_CONSUMPTION_ADAPTATION_REQUESTED);
             symptomMessage.setAlert(value);
             String json = Utility.convertMessageToJSONString(symptomMessage);
-            HttpConnection.invoke(json,URL);
             Utility.publish("home/analyzer/energyConsumption",json,DOCKERIZED);
-
         }
     }
 
     @Override
-    public void setStatus() throws JsonProcessingException, ExecutionException, InterruptedException {
-        String endpoint = "status";
-        String URL = (DOCKERIZED) ? (DOCKERURL + endpoint) : (LOCALURL + endpoint);
+    public void setStatus() throws JsonProcessingException {
         List<RoomData> rooms = roomDao.getRoomData();
         List<RoomData> roomsWithStatusChange = new ArrayList<>();
 
@@ -92,13 +81,9 @@ public class RoomServiceImpl implements RoomService {
             symptomMessage.setAlert(0);
             symptomMessage.setSymptomId(SymptomId.STATUS_WARNING);
             symptomMessage.setRooms(topics);
-            System.out.println("url: " +URL);
             System.out.println("Status adaptation for" + symptomMessage.getRooms().toString());
             String json = Utility.convertMessageToJSONString(symptomMessage);
-            String message = Utility.convertMessageToJSONString(symptomMessage);
-            HttpConnection.invoke(message,URL);
             Utility.publish("home/analyzer/status",json,DOCKERIZED);
-
         }
     }
 //EOF

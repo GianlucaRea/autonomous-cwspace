@@ -87,30 +87,14 @@ services:
     networks:
       - iot
 
-#  cwspace-planner:
-#    image: cwspace-planner
-#    container_name: Planner
-#    build:
-#      context: ./cwspace-planner/
-#      dockerfile: Dockerfile
-#    volumes:
-#      - /data/cwspace-planner
-#    ports:
-#      - "8081:8081"
-#    depends_on:
-#      - mosquitto
-#      - influxdb
-#    networks:
-#      - iot
-
   cwspace-planner:
-    image: cwspace-proactive-planner
+    image: cwspace-planner
     container_name: Planner
     build:
       context: ./cwspace-planner/
       dockerfile: Dockerfile
     volumes:
-      - /data/cwspace-proactive-planner
+      - /data/cwspace-planner
     ports:
       - "8081:8081"
     depends_on:
@@ -118,6 +102,22 @@ services:
       - influxdb
     networks:
       - iot
+
+#  cwspace-planner:
+#    image: cwspace-proactive-planner
+#    container_name: Planner
+#    build:
+#      context: ./cwspace-planner/
+#      dockerfile: Dockerfile
+#    volumes:
+#      - /data/cwspace-proactive-planner
+#    ports:
+#      - "8081:8081"
+#    depends_on:
+#      - mosquitto
+#      - influxdb
+#    networks:
+#      - iot
     
   cwspace-executor:
     image: cwspace-executor

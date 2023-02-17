@@ -1,16 +1,32 @@
 package it.univaq.seas;
 
+import it.univaq.seas.controller.EnergyService;
+import it.univaq.seas.daoImpl.RoomDaoImpl;
+import it.univaq.seas.model.AdaptationMessage;
+import it.univaq.seas.model.Message;
+import it.univaq.seas.model.RoomData;
+
 import org.eclipse.paho.client.mqttv3.*;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static it.univaq.seas.utility.Utility.convertMessageToJSONString;
+import static it.univaq.seas.utility.Utility.mqttPublish;
+
+/**
+ * @author gianlucarea
+ */
 public class Planner implements MqttCallback {
 
     private final String ENERGY_MESSAGE = "ENERGY_CONSUMPTION_ADAPTATION_REQUESTED";
-    private final String STATUS_MESSAGE = "STATUS_WARNING"
+    private final String STATUS_MESSAGE = "STATUS_WARNING";
     private MqttClient analyzerClientStatus = null, analyzerClientEnergy= null , systemClient = null;
     private static Planner plannerInstance = null;
-    private boolean  dockerized;
+    private boolean dockerized;
     private String url;
 
     public static Planner getInstance(Boolean dockerize){
@@ -48,31 +64,79 @@ public class Planner implements MqttCallback {
     }
 
     private JSONObject execute(String s){
-        JSONArray jsonArray = new JSONArray(s);
-
-        for(Object obj: jsonArray) {
-
-            JSONObject jsonObject = (JSONObject) obj;
-            String flag = (String) jsonObject.get("symptomId");
-
-            if(flag.equals(ENERGY_MESSAGE)){
-
-            } else if(flag.equals(STATUS_MESSAGE)){
-
-            }
-          /**  int statusFlag = 1;
-            if (!JSONObject.NULL.equals(jsonObject.get("status"))) {
-                statusFlag = (Integer) jsonObject.get("status");
-            }
-            if(flag.equals("EnergyAdaptation") || statusFlag != 0) {
-                publishParameterValues(jsonObject, "batteryOutput", "batteryOutput");
-            } else {
-                publishParameterValues(jsonObject, "status", "status");
-            }
-           **/
-
+        JSONObject jsonObject= new JSONObject(s);
+        String flag = (String) jsonObject.get("symptomId");
+        AdaptationMessage adaptationMessage = new AdaptationMessage();
+        if(flag.equals(ENERGY_MESSAGE)){
+            adaptationMessage.setAlert(jsonObject.getInt("alert"));
+            adaptationMessage.setRooms(jsonObject.get("rooms"));
+            adaptationMessage.setSymptomId(flag);
+            consumptionAdaptation(adaptationMessage);
+        } else if(flag.equals(STATUS_MESSAGE)){
+            adaptationMessage.setAlert(jsonObject.getInt("alert"));
+            adaptationMessage.setRooms(jsonObject.get("rooms"));
+            JSONArray temporaryArray = (JSONArray) jsonObject.get("rooms");
+            adaptationMessage.setRooms(temporaryArray);
+            adaptationMessage.setSymptomId(flag);
+            statusAdaptation(adaptationMessage);
         }
+
         return null;
+    }
+
+    public String consumptionAdaptation(AdaptationMessage message) {
+        System.out.println("CONSUMPTION ADAPTATION REQUESTED INSIDE PLANNER");
+        List<RoomData> rooms = new RoomDaoImpl().getRoomData();
+        int initEnergy = message.getAlert();
+
+        List<RoomData> results = EnergyService.energyConsumptionPolicy(rooms,initEnergy);
+        System.out.println("RESULTS 1 : "  +     results.get(1).getBatteryOutput());
+        List<Message> writeList = new ArrayList<>();
+
+        for(RoomData room : results){
+            Message  temporaryMessage = new Message();
+            temporaryMessage.setRoomId(room.getRoomId());
+            temporaryMessage.setBatteryOutput(room.getBatteryOutput());
+            temporaryMessage.setTopic(room.getTopic());
+            temporaryMessage.setMessage("EnergyAdaptation");
+            writeList.add(temporaryMessage);
+        }
+        String jsonMessage = convertMessageToJSONString(writeList);
+        System.out.println("Energy Consumption Policy : " + jsonMessage);
+        mqttPublish(jsonMessage,dockerized);
+        return "Consumption adaptation planned";
+    }
+
+    public String statusAdaptation(AdaptationMessage message) {
+        JSONArray jsonArray = (JSONArray) message.getRooms();
+        List<String> messageRooms = new ArrayList<>();
+        if (jsonArray != null) {
+            for (int i=0;i<jsonArray.length();i++){
+                messageRooms.add((String) jsonArray.get(i));
+            }
+        }
+
+        List<RoomData> rooms = new RoomDaoImpl().getRoomData();
+        List<RoomData> results = EnergyService.energyStatusPolicy(rooms,messageRooms);
+        List<Message> writeList = new ArrayList<>();
+
+        for (RoomData room: results){
+            Message  temporaryMessage = new Message();
+            temporaryMessage.setRoomId(room.getRoomId());
+            temporaryMessage.setBatteryInput(room.getBatteryInput());
+            temporaryMessage.setTopic(room.getTopic());
+            temporaryMessage.setMessage("StatusAdaptation");
+            if(room.isStatus()){
+                temporaryMessage.setStatus(1);
+            } else {
+                temporaryMessage.setStatus(0);
+            }
+            writeList.add(temporaryMessage);
+        }
+        String jsonMessage = convertMessageToJSONString(writeList);
+        System.out.println("Status Consumption Policy : " + jsonMessage);
+        mqttPublish(jsonMessage,dockerized);
+        return "Status adaptation planned";
     }
     @Override
     public void connectionLost(Throwable cause) {
@@ -89,5 +153,7 @@ public class Planner implements MqttCallback {
     public void deliveryComplete(IMqttDeliveryToken token) {
         System.out.println("Delivery Complete");
     }
+
+
 
 }

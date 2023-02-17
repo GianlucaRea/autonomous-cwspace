@@ -15,8 +15,7 @@ public class Executor implements MqttCallback {
 
     @Override
     public void connectionLost(Throwable throwable) {
-            throwable.printStackTrace();
-
+        throwable.printStackTrace();
     }
 
     @Override
@@ -48,8 +47,10 @@ public class Executor implements MqttCallback {
 
         this.systemClient = new MqttClient(this.url,"Executor_SystemClient");
         this.plannerClient = new MqttClient(this.url, "Executor_PlannerClient");
-        systemClient.connect();
+        this.systemClient.connect();
+
         connectAndSubscribe();
+
     }
 
     public void connectAndSubscribe() {
@@ -81,11 +82,11 @@ public class Executor implements MqttCallback {
             }
             String objToString = new JSONObject(executionData).toString();
             publish(jsonObj.getString("topic").replace("sensors", "actuators"), objToString);
-            System.out.println("Execution data published: " + objToString);
         }
     }
 
-    private JSONObject execute(String s){
+    private JSONObject execute(String s) throws MqttException {
+        systemClient.connect();
         JSONArray jsonArray = new JSONArray(s);
 
         for(Object obj: jsonArray) {
@@ -102,6 +103,7 @@ public class Executor implements MqttCallback {
                 publishParameterValues(jsonObject, "status", "status");
             }
         }
+        systemClient.disconnect();
         return null;
     }
 

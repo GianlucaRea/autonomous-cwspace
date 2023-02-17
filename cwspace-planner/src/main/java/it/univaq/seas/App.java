@@ -1,11 +1,10 @@
 package it.univaq.seas;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
+/**
+ * @author gianlucarea
+ */
 public class App {
     public static void main(String[] args) {
-        SpringApplication.run(App.class, args);
+        Planner.getInstance(true);
     }
 }
