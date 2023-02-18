@@ -103,21 +103,21 @@ services:
     networks:
       - iot
 
-#  cwspace-planner:
-#    image: cwspace-proactive-planner
-#    container_name: Planner
-#    build:
-#      context: ./cwspace-planner/
-#      dockerfile: Dockerfile
-#    volumes:
-#      - /data/cwspace-proactive-planner
-#    ports:
-#      - "8081:8081"
-#    depends_on:
-#      - mosquitto
-#      - influxdb
-#    networks:
-#      - iot
+  cwspace-planner-advanced:
+    image: cwspace-proactive-planner
+    container_name: Planner_Advanced
+    build:
+      context: ./cwspace-planner/
+      dockerfile: Dockerfile
+    volumes:
+      - /data/cwspace-proactive-planner
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mosquitto
+      - influxdb
+    networks:
+      - iot
     
   cwspace-executor:
     image: cwspace-executor
